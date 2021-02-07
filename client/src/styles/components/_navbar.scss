@@ -1,0 +1,25 @@
+.navbar {
+  background-color: rebeccapurple;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.navbar h1 {
+  margin-left: 10vw;
+}
+
+.navbar ul {
+  margin-right: 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  padding: $m-size;
+  font-size: 1.4rem;
+  color: white;
+}
