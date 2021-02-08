@@ -1,12 +1,14 @@
 .navbar {
-  background-color: rebeccapurple;
   display: flex;
+  background-color: $theme-blue;
   justify-content: space-between;
   width: 100vw;
 }
 
-.navbar h1 {
+.navbar h1 a {
   margin-left: 10vw;
+  color: $theme-red;
+  text-decoration: none;
 }
 
 .navbar ul {

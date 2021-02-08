@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
@@ -11,4 +12,19 @@ h1 {
 
 a {
   color: white;
+}
+
+button {
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #da4644;
+  color: whitesmoke;
+  font-weight: 600;
+  margin-right: 20px;
+  width: 10rem;
+}
+
+button:hover {
+  background-color: $theme-dark-red;
 }

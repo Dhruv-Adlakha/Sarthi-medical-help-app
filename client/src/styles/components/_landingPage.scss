@@ -1,0 +1,50 @@
+.landingPage__section {
+  padding-top: 5vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  background-color: $theme-blue;
+}
+
+.landingPage__section h2 {
+  color: $theme-red;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 3vh;
+  font-style: italic;
+}
+
+.landingPage__section ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: $s-size;
+  margin-bottom: $m-size;
+  line-height: $l-size;
+  background-color: $theme-blue;
+  padding-right: $m-size;
+}
+
+.landingPage__section img {
+  overflow: hidden;
+  height: 60vh;
+  padding: $xl-size;
+}
+
+.landingPage__section ul li {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.landingPage__section__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.landingPage__section__content__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
