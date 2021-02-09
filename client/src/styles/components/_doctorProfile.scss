@@ -1,0 +1,15 @@
+.doctorProfile {
+  background: $theme-blue;
+  color: $theme-white;
+  width: 20rem;
+  padding: $s-size;
+  margin-bottom: $m-size;
+}
+
+.doctorProfile span {
+  color: $theme-red;
+}
+
+.doctorProfile h2 {
+  color: $theme-red;
+}

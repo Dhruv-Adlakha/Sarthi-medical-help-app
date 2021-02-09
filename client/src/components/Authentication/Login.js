@@ -28,7 +28,7 @@ function Login() {
               </select>
             </div>
           </form>
-          <Link className='btn formLink'>Dashboard</Link>
+          <Link className='btn formLink'>Submit</Link>
         </div>
       </div>
     </div>

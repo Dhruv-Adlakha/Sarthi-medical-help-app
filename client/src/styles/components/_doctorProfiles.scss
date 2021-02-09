@@ -1,0 +1,15 @@
+.doctorProfiles {
+  width: 80vw;
+  margin: auto;
+}
+
+.doctorProfiles h2 {
+  text-align: center;
+}
+
+.doctorProfiles .cardsPane {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

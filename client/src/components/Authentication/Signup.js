@@ -40,7 +40,7 @@ function Signup() {
               <input type='password' name='confirm-password' />
             </div>
           </form>
-          <Link className='btn formLink'>Dashboard</Link>
+          <Link className='btn formLink'>Submit</Link>
         </div>
       </div>
     </div>
