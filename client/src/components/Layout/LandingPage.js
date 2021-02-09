@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import landingPageImage from '../../images/landingPage.jpg';
 
 const LandingPage = () => {
@@ -23,8 +24,15 @@ const LandingPage = () => {
             </li>
           </ul>
           <div className='landingPage__section__content__buttons'>
-            <button>Login</button>
-            <button>Sign up</button>
+            <Link to='/login' className='btn'>
+              Login
+            </Link>
+            <Link to='/signup' className='btn'>
+              Sign up
+            </Link>
+            <Link to='/about' className='btn'>
+              More about us
+            </Link>
           </div>
         </div>
       </div>

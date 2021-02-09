@@ -3,7 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: $theme-white;
   background-color: $theme-blue;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .landingPage__section ul li {
-  color: white;
+  color: $theme-white;
   font-size: 1.5rem;
   font-weight: 600;
 }

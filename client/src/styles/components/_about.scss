@@ -1,0 +1,33 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: row;
+  padding: $m-size;
+}
+
+.partition {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.about p {
+  font-size: $m-size;
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+}
+
+.about h3 {
+  color: $theme-red;
+  text-align: center;
+  font-size: $m-size;
+}
+
+.about ul {
+  line-height: $l-size;
+}

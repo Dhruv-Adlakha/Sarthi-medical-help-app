@@ -1,20 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div className='navbar'>
       <h1>
-        <a href='#'>Sarthi</a>
+        <NavLink to='/'>Sarthi</NavLink>
       </h1>
       <ul>
         <li>
-          <a href='#'>Login</a>
+          <NavLink className='isHover' to='/login'>
+            Login
+          </NavLink>
         </li>
         <li>
-          <a href='#'>SignUp</a>
+          <NavLink className='isHover' to='/signup'>
+            SignUp
+          </NavLink>
         </li>
         <li>
-          <a href='#'>About</a>
+          <NavLink className='isHover' to='/about'>
+            About
+          </NavLink>
         </li>
       </ul>
     </div>
