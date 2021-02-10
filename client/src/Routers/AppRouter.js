@@ -8,6 +8,7 @@ import DoctorProfiles from '../components/Doctors/DoctorProfiles';
 import DoctorRequests from '../components/Doctors/DoctorRequests';
 import DoctorDashboard from '../components/Doctors/DoctorDashboard';
 import DoctorMyProfile from '../components/Doctors/DoctorMyProfile';
+import DoctorsUpdateProfile from '../components/Doctors/DoctorUpdateProfile';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -20,6 +21,10 @@ const AppRouter = () => (
       <Route path='/doctors/profiles' component={DoctorProfiles} exact={true} />
       <Route path='/doctors/requests' component={DoctorRequests} />
       <Route path='/doctors/profiles/me' component={DoctorMyProfile} />
+      <Route
+        path='/doctors/profiles/updateProfile'
+        component={DoctorsUpdateProfile}
+      />
     </Switch>
   </BrowserRouter>
 );

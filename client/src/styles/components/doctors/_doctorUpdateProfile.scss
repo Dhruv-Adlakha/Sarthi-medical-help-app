@@ -1,0 +1,13 @@
+.doctorUpdateProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctorUpdateProfile span {
+  color: $theme-red;
+}
+
+.doctorUpdateProfile .fileText {
+  color: $theme-red;
+}

@@ -32,6 +32,12 @@ function DoctorMyProfile() {
             </div>
             <div className='contentPane'>
               <p>
+                <span>Hospital</span>
+              </p>
+              <p>Jodhpur</p>
+            </div>
+            <div className='contentPane'>
+              <p>
                 <span>Education</span>
               </p>
               <p>SMS,Jaipur</p>
@@ -43,7 +49,7 @@ function DoctorMyProfile() {
               <p>Yes</p>
             </div>
           </div>
-          <Link to='/doctors/profiles/update' className='btn'>
+          <Link to='/doctors/profiles/updateProfile' className='btn'>
             Update profile
           </Link>
         </div>

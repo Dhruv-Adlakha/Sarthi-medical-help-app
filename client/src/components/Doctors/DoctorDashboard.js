@@ -19,10 +19,10 @@ function DoctorDashboard() {
           <Link to='/doctors/profiles/me' className='btn'>
             My profile
           </Link>
-          <Link to='/doctors/profiles' className='btn'>
+          <Link to='/doctors/profiles/updateProfile' className='btn'>
             Update profile
           </Link>
-          <Link to='/doctors/profiles' className='btn'>
+          <Link to='/login' className='btn'>
             Delete profile
           </Link>
         </div>
