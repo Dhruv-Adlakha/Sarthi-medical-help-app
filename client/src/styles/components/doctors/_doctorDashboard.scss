@@ -1,0 +1,22 @@
+.doctorDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doctorDashboard img {
+  width: 30vw;
+  height: 40vh;
+  margin-top: $l-size;
+  border-radius: $s-size;
+}
+
+.doctorDashboard .contents {
+  margin-top: $l-size;
+  display: flex;
+  flex-direction: row;
+}
+
+.doctorDashboard .contents .btn {
+  margin: $s-size;
+}
