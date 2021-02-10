@@ -16,7 +16,7 @@ function DoctorDashboard() {
           <Link to='/doctors/requests' className='btn'>
             Patient requests
           </Link>
-          <Link to='/doctors/profiles' className='btn'>
+          <Link to='/doctors/profiles/me' className='btn'>
             My profile
           </Link>
           <Link to='/doctors/profiles' className='btn'>

@@ -1,0 +1,44 @@
+.doctorMyProfile {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
+}
+
+.doctorMyProfile .profileDescription {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctorMyProfile .profileDescription .content {
+  width: 30vw;
+  background: $theme-blue;
+  color: $theme-white;
+  padding: $m-size;
+  margin-bottom: $m-size;
+}
+
+.doctorMyProfile .profileDescription .content .contentPane {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.doctorMyProfile .profileDescription .content .contentPane span {
+  color: $theme-red;
+  font-weight: 600;
+}
+
+.doctorMyProfile .serviceHistory {
+  width: 50vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctorMyProfile .serviceHistory h2 {
+  text-align: center;
+  width: 40vw;
+}

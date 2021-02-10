@@ -7,6 +7,7 @@ import About from '../components/ExtraPages/About';
 import DoctorProfiles from '../components/Doctors/DoctorProfiles';
 import DoctorRequests from '../components/Doctors/DoctorRequests';
 import DoctorDashboard from '../components/Doctors/DoctorDashboard';
+import DoctorMyProfile from '../components/Doctors/DoctorMyProfile';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -16,8 +17,9 @@ const AppRouter = () => (
       <Route path='/signup' component={Signup} />
       <Route path='/about' component={About} />
       <Route path='/doctors/dashboard' component={DoctorDashboard} />
-      <Route path='/doctors/profiles' component={DoctorProfiles} />
+      <Route path='/doctors/profiles' component={DoctorProfiles} exact={true} />
       <Route path='/doctors/requests' component={DoctorRequests} />
+      <Route path='/doctors/profiles/me' component={DoctorMyProfile} />
     </Switch>
   </BrowserRouter>
 );

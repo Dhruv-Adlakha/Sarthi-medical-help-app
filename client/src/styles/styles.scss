@@ -1,13 +1,20 @@
 @import './base/settings';
 @import './base/base';
+
 @import './components/utils/container';
+
 @import './components/layout/navbar';
 @import './components/layout/landingPage';
+
 @import './components/authentication/login';
 @import './components/authentication/signup';
+
 @import './components/otherPages/about';
+
 @import './components/doctors/doctorProfiles';
 @import './components/doctors/doctorProfile';
 @import './components/doctors/doctorRequests';
 @import './components/doctors/doctorRequest';
 @import './components/doctors/doctorDashboard';
+@import './components/doctors/doctorMyProfile';
+@import './components/doctors/serviceHistoryElement';
