@@ -1,0 +1,63 @@
+.currentVisit {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+}
+
+.currentVisit .status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentVisit .statusBars {
+  background: $theme-blue;
+  color: $theme-red;
+  padding: $m-size;
+  border-radius: 0.8rem;
+}
+
+.currentVisit .statusBars .statusBarsElement {
+  padding: $m-size;
+  border-bottom: 1px solid $theme-white;
+}
+
+.currentVisit .statusBars .done {
+  color: greenyellow;
+}
+
+.currentVisit .depictor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20rem;
+  font-size: $s-size;
+  color: $theme-white;
+  background: $theme-blue;
+  margin-top: 0.8rem;
+  padding: 0 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.currentVisit .depictor .red {
+  color: $theme-red;
+}
+
+.currentVisit .depictor .green {
+  color: greenyellow;
+}
+
+.currentVisit .volunteer {
+  border: 2px solid $theme-blue;
+  padding: $s-size;
+  border-radius: 0.5rem;
+}
+
+.currentVisit .volunteer h2 {
+  color: $theme-red;
+}
