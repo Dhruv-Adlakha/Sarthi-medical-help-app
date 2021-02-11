@@ -1,0 +1,38 @@
+.prescribeMedicines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35rem;
+  margin: auto;
+  margin-top: $m-size;
+}
+
+.prescribeMedicines .addedMedicine {
+  background-color: $theme-blue;
+  color: $theme-white;
+  width: 102%;
+  padding: 0.8rem;
+}
+
+.prescribeMedicines .addMedicine {
+  display: flex;
+  flex-direction: row;
+  width: 37.3rem;
+  margin-bottom: $m-size;
+}
+
+.prescribeMedicines .addMedicine input {
+  width: 80%;
+  padding: 0.5rem;
+  font-size: $s-size;
+  color: $theme-blue;
+}
+
+.prescribeMedicines .addMedicine button {
+  width: 20%;
+  padding: 0.8rem;
+  font-size: $s-size;
+  background-color: $theme-red;
+  color: $theme-white;
+}

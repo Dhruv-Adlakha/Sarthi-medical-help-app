@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function DoctorRequest() {
   return (
@@ -9,7 +10,9 @@ function DoctorRequest() {
         ache also.pppppp
       </p>
       <div className='buttonSection'>
-        <button className='btn'>Prescribe medicines</button>
+        <NavLink to='/doctors/requests/prescribe' className='btn'>
+          Prescribe medicines
+        </NavLink>
       </div>
     </div>
   );
