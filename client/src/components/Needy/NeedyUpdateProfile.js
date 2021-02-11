@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 
-function DoctorUpdateProfile() {
+function NeedyUpdateProfile() {
   return (
     <div>
       <Navbar />
@@ -18,28 +18,23 @@ function DoctorUpdateProfile() {
             </div>
             <div className='formElement'>
               <label>
-                <span>Qualification</span>
+                <span>Yearly income</span>
               </label>
-              <input type='text' name='qualification' />
+              <input type='text' name='income' />
             </div>
             <div className='formElement'>
               <label>
-                <span>Speciality</span>
+                <span>Age</span>
               </label>
-              <input type='text' name='speciality' />
+              <input type='text' name='age' />
             </div>
             <div className='formElement'>
               <label>
-                <span>Hospital</span>
+                <span>Gender</span>
               </label>
-              <input type='text' name='hospital' />
+              <input type='text' name='gender' />
             </div>
-            <div className='formElement'>
-              <label>
-                <span>Education</span>
-              </label>
-              <input type='text' name='education' />
-            </div>
+
             <div className='formElement'>
               <label>
                 <span>Aadhar</span>
@@ -64,4 +59,4 @@ function DoctorUpdateProfile() {
   );
 }
 
-export default DoctorUpdateProfile;
+export default NeedyUpdateProfile;

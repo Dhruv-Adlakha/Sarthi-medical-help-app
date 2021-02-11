@@ -10,6 +10,9 @@ import DoctorDashboard from '../components/Doctors/DoctorDashboard';
 import DoctorMyProfile from '../components/Doctors/DoctorMyProfile';
 import DoctorsUpdateProfile from '../components/Doctors/DoctorUpdateProfile';
 import PrescribeMedicines from '../components/Doctors/PrescribeMedicines';
+import NeedyDashboard from '../components/Needy/NeedyDashboard';
+import NeedyUpdateProfile from '../components/Needy/NeedyUpdateProfile';
+import NeedyMyProfile from '../components/Needy/NeedyMyProfile';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -22,6 +25,7 @@ const AppRouter = () => (
       <Route path='/doctors/profiles' component={DoctorProfiles} exact={true} />
       <Route path='/doctors/requests' component={DoctorRequests} exact={true} />
       <Route path='/doctors/profiles/me' component={DoctorMyProfile} />
+
       <Route
         path='/doctors/profiles/updateProfile'
         component={DoctorsUpdateProfile}
@@ -30,6 +34,10 @@ const AppRouter = () => (
         path='/doctors/requests/prescribe'
         component={PrescribeMedicines}
       />
+
+      <Route path='/needy/dashboard' component={NeedyDashboard} />
+      <Route path='/needy/updateProfile' component={NeedyUpdateProfile} />
+      <Route path='/needy/profiles/me' component={NeedyMyProfile} />
     </Switch>
   </BrowserRouter>
 );

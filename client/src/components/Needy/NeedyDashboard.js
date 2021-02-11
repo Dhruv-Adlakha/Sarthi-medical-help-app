@@ -1,25 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
-import DoctorDashboardImage from '../../images/doctorDashboardImage.jpg';
+import NeedyDashboardImage from '../../images/needyDashboard.jpeg';
 
-function DoctorDashboard() {
+function NeedyDashboard() {
   return (
     <div>
       <Navbar />
       <div className='dashboard'>
-        <img src={DoctorDashboardImage} alt='' />
+        <img src={NeedyDashboardImage} alt='' />
         <div className='contents'>
+          <Link to='/doctors/requests' className='btn'>
+            Doctor visit
+          </Link>
+          <Link to='/doctors/profiles' className='btn'>
+            Current application
+          </Link>
           <Link to='/doctors/profiles' className='btn'>
             All Doctors
           </Link>
-          <Link to='/doctors/requests' className='btn'>
-            Patient requests
-          </Link>
-          <Link to='/doctors/profiles/me' className='btn'>
+
+          <Link to='/needy/profiles/me' className='btn'>
             My profile
           </Link>
-          <Link to='/doctors/profiles/updateProfile' className='btn'>
+          <Link to='/needy/updateProfile' className='btn'>
             Update profile
           </Link>
           <Link to='/login' className='btn'>
@@ -31,4 +35,4 @@ function DoctorDashboard() {
   );
 }
 
-export default DoctorDashboard;
+export default NeedyDashboard;

@@ -10,13 +10,13 @@
 @import './components/authentication/signup';
 
 @import './components/otherPages/about';
+@import './components/otherPages/dashboard';
+@import './components/otherPages/updateProfile';
+@import './components/otherPages/myProfile';
 
 @import './components/doctors/doctorProfiles';
 @import './components/doctors/doctorProfile';
 @import './components/doctors/doctorRequests';
 @import './components/doctors/doctorRequest';
-@import './components/doctors/doctorDashboard';
-@import './components/doctors/doctorMyProfile';
 @import './components/doctors/serviceHistoryElement';
-@import './components/doctors/doctorUpdateProfile';
 @import './components/doctors/prescribeMedicines';

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
+
 import ServiceHistoryElement from '../ExtraPages/ServiceHistoryElement';
 
-function DoctorMyProfile() {
+function NeedyMyProfile() {
   return (
     <div>
       <Navbar />
@@ -15,32 +16,26 @@ function DoctorMyProfile() {
               <p>
                 <span>Name</span>
               </p>
-              <p>Dr. Umar Gul</p>
+              <p>Motilal vihari</p>
             </div>
 
             <div className='contentPane'>
               <p>
-                <span>Qualification</span>
+                <span>Age</span>
               </p>
-              <p>MBBS</p>
+              <p>45</p>
             </div>
             <div className='contentPane'>
               <p>
-                <span>Speciality</span>
+                <span>Annual income</span>
               </p>
-              <p>ENT</p>
+              <p>60000</p>
             </div>
             <div className='contentPane'>
               <p>
-                <span>Hospital</span>
+                <span>Gender</span>
               </p>
-              <p>Jodhpur</p>
-            </div>
-            <div className='contentPane'>
-              <p>
-                <span>Education</span>
-              </p>
-              <p>SMS,Jaipur</p>
+              <p>Male</p>
             </div>
             <div className='contentPane'>
               <p>
@@ -49,12 +44,12 @@ function DoctorMyProfile() {
               <p>Yes</p>
             </div>
           </div>
-          <Link to='/doctors/profiles/updateProfile' className='btn'>
+          <Link to='/needy/updateProfile' className='btn'>
             Update profile
           </Link>
         </div>
         <div className='serviceHistory'>
-          <h2>Service history</h2>
+          <h2>Doctor visits</h2>
           <div className='content'>
             <ServiceHistoryElement />
             <ServiceHistoryElement />
@@ -67,4 +62,4 @@ function DoctorMyProfile() {
   );
 }
 
-export default DoctorMyProfile;
+export default NeedyMyProfile;

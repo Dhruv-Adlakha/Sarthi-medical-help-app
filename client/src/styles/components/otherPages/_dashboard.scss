@@ -1,22 +1,22 @@
-.doctorDashboard {
+.dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.doctorDashboard img {
+.dashboard img {
   width: 30vw;
   height: 40vh;
   margin-top: $l-size;
   border-radius: $s-size;
 }
 
-.doctorDashboard .contents {
+.dashboard .contents {
   margin-top: $l-size;
   display: flex;
   flex-direction: row;
 }
 
-.doctorDashboard .contents .btn {
+.dashboard .contents .btn {
   margin: $s-size;
 }

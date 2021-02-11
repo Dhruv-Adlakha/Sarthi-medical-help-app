@@ -1,10 +1,10 @@
-.doctorMyProfile {
+.myProfile {
   display: flex;
   flex-direction: row;
   margin-top: 5vh;
 }
 
-.doctorMyProfile .profileDescription {
+.myProfile .profileDescription {
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.doctorMyProfile .profileDescription .content {
+.myProfile .profileDescription .content {
   width: 30vw;
   background: $theme-blue;
   color: $theme-white;
@@ -20,25 +20,25 @@
   margin-bottom: $m-size;
 }
 
-.doctorMyProfile .profileDescription .content .contentPane {
+.myProfile .profileDescription .content .contentPane {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.doctorMyProfile .profileDescription .content .contentPane span {
+.myProfile .profileDescription .content .contentPane span {
   color: $theme-red;
   font-weight: 600;
 }
 
-.doctorMyProfile .serviceHistory {
+.myProfile .serviceHistory {
   width: 50vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.doctorMyProfile .serviceHistory h2 {
+.myProfile .serviceHistory h2 {
   text-align: center;
   width: 40vw;
 }
