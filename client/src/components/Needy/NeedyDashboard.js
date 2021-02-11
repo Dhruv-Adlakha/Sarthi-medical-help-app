@@ -10,11 +10,11 @@ function NeedyDashboard() {
       <div className='dashboard'>
         <img src={NeedyDashboardImage} alt='' />
         <div className='contents'>
-          <Link to='/doctors/requests' className='btn'>
+          <Link to='/needy/doctorVisit' className='btn'>
             Doctor visit
           </Link>
-          <Link to='/doctors/profiles' className='btn'>
-            Current application
+          <Link to='/needy/currentVisit' className='btn'>
+            Current visit
           </Link>
           <Link to='/doctors/profiles' className='btn'>
             All Doctors

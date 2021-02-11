@@ -10,54 +10,56 @@ function DoctorUpdateProfile() {
         <div className='full-form'>
           <h2>Upate Profile</h2>
           <form action=''>
-            <div className='formElement'>
-              <label>
-                <span>Name</span>
-              </label>
-              <input type='text' name='name' />
+            <div className='formArea'>
+              <div className='formElement'>
+                <label>
+                  <span>Name</span>
+                </label>
+                <input type='text' name='name' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Qualification</span>
+                </label>
+                <input type='text' name='qualification' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Speciality</span>
+                </label>
+                <input type='text' name='speciality' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Hospital</span>
+                </label>
+                <input type='text' name='hospital' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Education</span>
+                </label>
+                <input type='text' name='education' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Aadhar</span>
+                </label>
+                <input className='fileText' type='file' name='aadhar' />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Education certificate</span>
+                </label>
+                <input
+                  className='fileText'
+                  type='file'
+                  name='education-certificate'
+                />
+              </div>
             </div>
-            <div className='formElement'>
-              <label>
-                <span>Qualification</span>
-              </label>
-              <input type='text' name='qualification' />
-            </div>
-            <div className='formElement'>
-              <label>
-                <span>Speciality</span>
-              </label>
-              <input type='text' name='speciality' />
-            </div>
-            <div className='formElement'>
-              <label>
-                <span>Hospital</span>
-              </label>
-              <input type='text' name='hospital' />
-            </div>
-            <div className='formElement'>
-              <label>
-                <span>Education</span>
-              </label>
-              <input type='text' name='education' />
-            </div>
-            <div className='formElement'>
-              <label>
-                <span>Aadhar</span>
-              </label>
-              <input className='fileText' type='file' name='aadhar' />
-            </div>
-            <div className='formElement'>
-              <label>
-                <span>Education certificate</span>
-              </label>
-              <input
-                className='fileText'
-                type='file'
-                name='education-certificate'
-              />
-            </div>
+            <button className='btn formLink'>Submit</button>
           </form>
-          <Link className='btn formLink'>Submit</Link>
         </div>
       </div>
     </div>

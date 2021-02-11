@@ -10,25 +10,27 @@ function Login() {
         <div className='full-form'>
           <h2>Login</h2>
           <form action=''>
-            <div className='formElement'>
-              <label>Email</label>
-              <input type='email' name='email' />
+            <div className='formArea'>
+              <div className='formElement'>
+                <label>Email</label>
+                <input type='email' name='email' />
+              </div>
+              <div className='formElement'>
+                <label>Password</label>
+                <input type='password' name='password' />
+              </div>
+              <div className='formElement'>
+                <label>Purpose</label>
+                <select name='purpose' id='purpose'>
+                  <option value='need help'>Need help</option>
+                  <option value='volunteer'>Volunteer</option>
+                  <option value='doctor'>Doctor</option>
+                  <option value='admin'>Admin</option>
+                </select>
+              </div>
             </div>
-            <div className='formElement'>
-              <label>Password</label>
-              <input type='password' name='password' />
-            </div>
-            <div className='formElement'>
-              <label>Purpose</label>
-              <select name='purpose' id='purpose'>
-                <option value='need help'>Need help</option>
-                <option value='volunteer'>Volunteer</option>
-                <option value='doctor'>Doctor</option>
-                <option value='admin'>Admin</option>
-              </select>
-            </div>
+            <button className='btn formLink'>Submit</button>
           </form>
-          <Link className='btn formLink'>Submit</Link>
         </div>
       </div>
     </div>

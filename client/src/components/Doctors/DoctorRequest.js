@@ -5,6 +5,7 @@ function DoctorRequest() {
   return (
     <div className='doctorRequest'>
       <h2>Problem: Fever</h2>
+      <h5>Patient: Motilal mishra</h5>
       <p>
         I have been suffering from fever for the last 5 days and have stomach
         ache also.pppppp
