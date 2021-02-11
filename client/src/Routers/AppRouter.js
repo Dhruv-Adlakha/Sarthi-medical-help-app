@@ -15,6 +15,11 @@ import NeedyUpdateProfile from '../components/Needy/NeedyUpdateProfile';
 import NeedyMyProfile from '../components/Needy/NeedyMyProfile';
 import DoctorVisit from '../components/Needy/DoctorVisit';
 import CurrentVisit from '../components/Needy/CurrentVisit';
+import VolunteerDashboard from '../components/Volunteers/VolunteersDashboard';
+import VolunteerMyProfile from '../components/Volunteers/VolunteerMyProfile';
+import VolunteerUpdateProfile from '../components/Volunteers/VolunteerUpdateProfile';
+import PatientRequests from '../components/Volunteers/PatientRequests';
+import TrustContribute from '../components/Volunteers/TrustContribute';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -42,6 +47,15 @@ const AppRouter = () => (
       <Route path='/needy/profiles/me' component={NeedyMyProfile} />
       <Route path='/needy/doctorVisit' component={DoctorVisit} />
       <Route path='/needy/currentVisit' component={CurrentVisit} />
+
+      <Route path='/volunteers/dashboard' component={VolunteerDashboard} />
+      <Route path='/volunteers/profiles/me' component={VolunteerMyProfile} />
+      <Route
+        path='/volunteers/profiles/updateProfile'
+        component={VolunteerUpdateProfile}
+      />
+      <Route path='/volunteers/patientRequests' component={PatientRequests} />
+      <Route path='/volunteers/trustContribution' component={TrustContribute} />
     </Switch>
   </BrowserRouter>
 );
