@@ -20,6 +20,11 @@ import VolunteerMyProfile from '../components/Volunteers/VolunteerMyProfile';
 import VolunteerUpdateProfile from '../components/Volunteers/VolunteerUpdateProfile';
 import PatientRequests from '../components/Volunteers/PatientRequests';
 import TrustContribute from '../components/Volunteers/TrustContribute';
+import AdminDashboard from '../components/Admin/AdminDashboard';
+import AllPatients from '../components/Admin/AllPatients';
+import AllVolunteers from '../components/Admin/AllVolunteers';
+import VerificationRequests from '../components/Admin/VerificationRequests';
+import Trust from '../components/Admin/Trust';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -56,6 +61,15 @@ const AppRouter = () => (
       />
       <Route path='/volunteers/patientRequests' component={PatientRequests} />
       <Route path='/volunteers/trustContribution' component={TrustContribute} />
+
+      <Route path='/admin/dashboard' component={AdminDashboard} />
+      <Route path='/admin/patients' component={AllPatients} />
+      <Route path='/admin/volunteers' component={AllVolunteers} />
+      <Route
+        path='/admin/verificationRequests'
+        component={VerificationRequests}
+      />
+      <Route path='/admin/trust' component={Trust} />
     </Switch>
   </BrowserRouter>
 );

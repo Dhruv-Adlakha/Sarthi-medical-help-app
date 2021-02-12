@@ -1,0 +1,47 @@
+.volunteerRequests h2 {
+  text-align: center;
+  font-size: $m-size;
+}
+
+.volunteerRequests .section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.patientRequestElement {
+  background: $theme-blue;
+  color: $theme-white;
+  padding: $s-size;
+  margin-bottom: $s-size;
+  border-radius: 0.5rem;
+  width: 30vw;
+  text-align: center;
+}
+
+.patientRequestElement .pane {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.patientRequestElement .pane span {
+  color: $theme-red;
+}
+
+.patientRequestElement button {
+  background: green;
+  color: $theme-white;
+  padding: 0.8rem;
+  margin-top: $s-size;
+}
+
+.patientRequestElement button:hover {
+  background: rgb(5, 88, 5);
+}
+
+.patientRequestElement span {
+  color: $theme-red;
+}

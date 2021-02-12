@@ -6,7 +6,7 @@ function DoctorProfiles() {
   return (
     <div>
       <Navbar />
-      <div className='doctorProfiles'>
+      <div className='profiles'>
         <h2>Doctors</h2>
         <div className='cardsPane'>
           <DoctorProfile />

@@ -2,7 +2,7 @@ import React from 'react';
 
 function DoctorProfile() {
   return (
-    <div className='doctorProfile'>
+    <div className='profile'>
       <h2>Dr. Ashwin Pareek</h2>
       <p>
         <span>Hospital: </span>AIIMS,Delhi

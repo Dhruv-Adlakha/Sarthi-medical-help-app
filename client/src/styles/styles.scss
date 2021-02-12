@@ -13,9 +13,9 @@
 @import './components/otherPages/dashboard';
 @import './components/otherPages/updateProfile';
 @import './components/otherPages/myProfile';
+@import './components/otherPages/profiles';
+@import './components/otherPages/profile';
 
-@import './components/doctors/doctorProfiles';
-@import './components/doctors/doctorProfile';
 @import './components/doctors/doctorRequests';
 @import './components/doctors/doctorRequest';
 @import './components/doctors/serviceHistoryElement';
@@ -25,3 +25,4 @@
 @import './components/needy/currentVisit';
 
 @import './components/volunteers/trustContribute';
+@import './components/volunteers/volunteerRequests';
