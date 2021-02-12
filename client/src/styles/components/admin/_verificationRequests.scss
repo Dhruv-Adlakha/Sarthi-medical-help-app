@@ -1,0 +1,47 @@
+.verificationRequests h2 {
+  text-align: center;
+  font-size: $m-size;
+}
+
+.verificationRequests .section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.verificationRequestElement {
+  background: $theme-blue;
+  color: $theme-white;
+  padding: $s-size;
+  margin-bottom: $s-size;
+  border-radius: 0.5rem;
+  width: 30vw;
+  text-align: center;
+}
+
+.verificationRequestElement .pane {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.verificationRequestElement .pane span {
+  color: $theme-red;
+}
+
+.verificationRequestElement button {
+  background: green;
+  color: $theme-white;
+  padding: 0.8rem;
+  margin-top: $s-size;
+}
+
+.verificationRequestElement button:hover {
+  background: rgb(5, 88, 5);
+}
+
+.verificationRequestElement span {
+  color: $theme-red;
+}
