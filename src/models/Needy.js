@@ -24,24 +24,9 @@ const needySchema = new mongoose.Schema({
     type: String,
   },
   profileVerified: {
-    type: Boolean,
+    type: String,
+    required: true,
   },
-  doctorVisits: [
-    {
-      doctorName: {
-        type: String,
-        required: true,
-      },
-      illness: {
-        type: String,
-        required: true,
-      },
-      data: {
-        type: Date,
-        required: true,
-      },
-    },
-  ],
 });
 
 const Needy = mongoose.model('Needy', needySchema);

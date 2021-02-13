@@ -14,18 +14,6 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  age: {
-    type: Number,
-  },
-  annualIncome: {
-    type: Number,
-  },
-  gender: {
-    type: String,
-  },
-  profileVerified: {
-    type: Boolean,
-  },
 });
 
 const Admin = mongoose.model('Admin', adminSchema);
