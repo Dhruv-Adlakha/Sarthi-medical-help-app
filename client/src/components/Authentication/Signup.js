@@ -21,10 +21,6 @@ function Signup() {
                 <input type='email' name='email' />
               </div>
               <div className='formElement'>
-                <label>Locality</label>
-                <input type='text' name='locality' />
-              </div>
-              <div className='formElement'>
                 <label>Purpose</label>
                 <select name='purpose' id='purpose'>
                   <option value='need help'>Need help</option>
