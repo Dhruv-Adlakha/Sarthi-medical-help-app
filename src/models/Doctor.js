@@ -28,6 +28,22 @@ const doctorSchema = new mongoose.Schema({
   profileVerified: {
     type: Boolean,
   },
+  patientRequests: [
+    {
+      problem: {
+        type: String,
+        required: true,
+      },
+      patient: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 const Doctor = mongoose.model('Doctor', doctorSchema);

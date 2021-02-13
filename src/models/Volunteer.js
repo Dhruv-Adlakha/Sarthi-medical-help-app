@@ -26,6 +26,22 @@ const volunteerSchema = new mongoose.Schema({
   profileVerified: {
     type: Boolean,
   },
+  serviceDone: [
+    {
+      serviceType: {
+        type: String,
+        required: true,
+      },
+      patient: {
+        type: String,
+        required: true,
+      },
+      date: {
+        type: Date,
+        required: true,
+      },
+    },
+  ],
 });
 
 const Volunteer = mongoose.model('Volunteer', volunteerSchema);
