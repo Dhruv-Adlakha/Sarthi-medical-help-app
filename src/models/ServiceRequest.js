@@ -20,7 +20,7 @@ const requestSchema = new mongoose.Schema({
   },
   prescription: [
     {
-      medicines: {
+      medicine: {
         type: String,
       },
     },

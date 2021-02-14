@@ -27,7 +27,6 @@ function PrescribeMedicines() {
           <input type='text' name='medicine' />
           <button>Add</button>
         </div>
-        <button className='btn'>Prescribe</button>
       </div>
     </div>
   );
