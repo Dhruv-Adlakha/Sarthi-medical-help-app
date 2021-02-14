@@ -27,6 +27,14 @@ const volunteerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  trustItems: [
+    {
+      trustItem: {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'TrustItem',
+      },
+    },
+  ],
 });
 
 const Volunteer = mongoose.model('Volunteer', volunteerSchema);

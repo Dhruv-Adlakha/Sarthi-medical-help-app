@@ -9,6 +9,9 @@ const trustItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  address: {
+    type: String,
+  },
 });
 
 const trustItem = mongoose.model('TrustItem', trustItemSchema);
