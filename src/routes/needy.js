@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Needy = require('../models/Needy');
-const Request = require('../models/Request');
+const ServiceRequest = require('../models/ServiceRequest');
 const Doctor = require('../models/Doctor');
 const mongoose = require('mongoose');
 
@@ -26,6 +26,8 @@ router.patch('/needy/updateProfile/:id', async (req, res) => {
     updates.map((update) => {
       user[update] = req.body[update];
     });
+
+    user['profileVerified'] = 'In process';
     res.send(user);
   } catch (error) {
     res.status(500).send(error);
@@ -37,7 +39,7 @@ router.post('/needy/helpRequest', async (req, res) => {
   try {
     const patient = await Needy.findById(req.body.patientId);
     const doctor = await Doctor.findById(req.body.doctorId);
-    const helpRequest = new Request({
+    const helpRequest = new ServiceRequest({
       problem: req.body.problem,
       description: req.body.description,
       patient: patient._id,
