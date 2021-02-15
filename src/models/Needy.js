@@ -27,7 +27,24 @@ const needySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  needyToken: {
+    type: String,
+  },
 });
+
+needySchema.methods.generateAuthToken = async function () {
+  const needy = this;
+  const token = await jwt.sign(
+    { _id: needy._id.toString() },
+    'SecretKeyDhruv',
+    {
+      expiresIn: 200000,
+    }
+  );
+  needy.needyToken = token;
+  await needy.save();
+  return token;
+};
 
 const Needy = mongoose.model('Needy', needySchema);
 

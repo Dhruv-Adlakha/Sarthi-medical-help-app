@@ -4,9 +4,10 @@ const Needy = require('../models/Needy');
 const ServiceRequest = require('../models/ServiceRequest');
 const Doctor = require('../models/Doctor');
 const mongoose = require('mongoose');
+const auth = require('../middleware/auth');
 
 //get my profile
-router.get('/needy/profiles/:id', async (req, res) => {
+router.get('/needy/profiles/:id', auth, async (req, res) => {
   try {
     const user = await Needy.findById(req.params.id);
     res.send(user);
@@ -16,7 +17,7 @@ router.get('/needy/profiles/:id', async (req, res) => {
 });
 
 //update my profile
-router.patch('/needy/updateProfile/:id', async (req, res) => {
+router.patch('/needy/updateProfile/:id', auth, async (req, res) => {
   try {
     const user = await Needy.findById(req.params.id);
     const updates = Object.keys(req.body);
@@ -35,7 +36,7 @@ router.patch('/needy/updateProfile/:id', async (req, res) => {
 });
 
 //make a request
-router.post('/needy/helpRequest', async (req, res) => {
+router.post('/needy/helpRequest', auth, async (req, res) => {
   try {
     const patient = await Needy.findById(req.body.patientId);
     const doctor = await Doctor.findById(req.body.doctorId);

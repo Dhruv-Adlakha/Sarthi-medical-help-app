@@ -4,6 +4,7 @@ const Needy = require('../models/Needy');
 const Doctor = require('../models/Doctor');
 const Volunteer = require('../models/Volunteer');
 const TrustItem = require('../models/TrustItem');
+const auth = require('../middleware/auth');
 
 //get all doctors
 router.get('/admin/doctorProfiles', async (req, res) => {
@@ -16,7 +17,7 @@ router.get('/admin/doctorProfiles', async (req, res) => {
 });
 
 //get all volunteers
-router.get('/admin/volunteerProfiles', async (req, res) => {
+router.get('/admin/volunteerProfiles', auth, async (req, res) => {
   try {
     const volunteers = await Volunteer.find({});
     res.send(volunteers);
@@ -26,7 +27,7 @@ router.get('/admin/volunteerProfiles', async (req, res) => {
 });
 
 //get all needy
-router.get('/admin/needyProfiles', async (req, res) => {
+router.get('/admin/needyProfiles', auth, async (req, res) => {
   try {
     const needy = await Needy.find({});
     res.send(needy);
@@ -36,7 +37,7 @@ router.get('/admin/needyProfiles', async (req, res) => {
 });
 
 //get trust donators
-router.get('/admin/trust', async (req, res) => {
+router.get('/admin/trust', auth, async (req, res) => {
   try {
     const trustItems = await TrustItem.find({});
     res.send(trustItems);

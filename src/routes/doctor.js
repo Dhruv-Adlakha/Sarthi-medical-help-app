@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Doctor = require('../models/Doctor');
 const ServiceRequest = require('../models/ServiceRequest');
+const auth = require('../middleware/auth');
 
 //get my profile
-router.get('/doctor/profiles/:id', async (req, res) => {
+router.get('/doctor/profiles/:id', auth, async (req, res) => {
   try {
     const user = await Doctor.findById(req.params.id);
     res.send(user);
@@ -14,7 +15,7 @@ router.get('/doctor/profiles/:id', async (req, res) => {
 });
 
 //update my profile
-router.patch('/doctor/updateProfile/:id', async (req, res) => {
+router.patch('/doctor/updateProfile/:id', auth, async (req, res) => {
   try {
     const user = await Doctor.findById(req.params.id);
     const updates = Object.keys(req.body);
@@ -33,7 +34,7 @@ router.patch('/doctor/updateProfile/:id', async (req, res) => {
 });
 
 //prescribe medicine
-router.post('/doctor/prescribeMedicines/:id', async (req, res) => {
+router.post('/doctor/prescribeMedicines/:id', auth, async (req, res) => {
   try {
     const request = await ServiceRequest.findById(req.params.id);
     if (!request) {

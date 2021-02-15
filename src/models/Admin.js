@@ -14,7 +14,24 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  adminToken: {
+    type: String,
+  },
 });
+
+adminSchema.methods.generateAuthToken = async function () {
+  const admin = this;
+  const token = await jwt.sign(
+    { _id: admin._id.toString() },
+    'SecretKeyDhruv',
+    {
+      expiresIn: 200000,
+    }
+  );
+  admin.adminToken = token;
+  await admin.save();
+  return token;
+};
 
 const Admin = mongoose.model('Admin', adminSchema);
 

@@ -3,9 +3,10 @@ const TrustItem = require('../models/TrustItem');
 const ServiceRequest = require('../models/ServiceRequest');
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 
 //create trust item
-router.post('/volunteer/trust', async (req, res) => {
+router.post('/volunteer/trust', auth, async (req, res) => {
   try {
     const trustItem = {
       amount: req.body.amount,
@@ -24,7 +25,7 @@ router.post('/volunteer/trust', async (req, res) => {
 });
 
 //get my profile
-router.get('/volunteer/profiles/:id', async (req, res) => {
+router.get('/volunteer/profiles/:id', auth, async (req, res) => {
   try {
     const volunteer = await Volunteer.findById(req.params.id);
     res.send(volunteer);
@@ -34,7 +35,7 @@ router.get('/volunteer/profiles/:id', async (req, res) => {
 });
 
 //update my profile
-router.patch('/volunteer/updateProfile/:id', async (req, res) => {
+router.patch('/volunteer/updateProfile/:id', auth, async (req, res) => {
   try {
     const user = await Volunteer.findById(req.params.id);
     const updates = Object.keys(req.body);
@@ -53,7 +54,7 @@ router.patch('/volunteer/updateProfile/:id', async (req, res) => {
 });
 
 //accept patient request
-router.post('/volunteer/patientRequest/:id', async (req, res) => {
+router.post('/volunteer/patientRequest/:id', auth, async (req, res) => {
   try {
     const request = await ServiceRequest.findById(req.params.id);
     const volunteer = await Volunteer.findById(req.body.volunteer);
