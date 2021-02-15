@@ -39,14 +39,17 @@ const Navbar = (props) => {
             <NavLink to='/'>Sarthi</NavLink>
           </h1>
           <ul>
-            <li>
-              <NavLink
-                className='isHover'
-                to={`/${props.currUser.role}/dashboard`}
-              >
-                Dashboard
-              </NavLink>
-            </li>
+            {(props.currUser.profileVerified === 'Verified' ||
+              props.currUser.role === 'admin') && (
+              <li>
+                <NavLink
+                  className='isHover'
+                  to={`/${props.currUser.role}/dashboard`}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink className='isHover' to='/' onClick={onClickHandler}>
                 Logout

@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Layout/Navbar';
 import VerificationRequestElement from '../Admin/VerificationRequestElement';
-function VerificationRequests() {
+import { connect } from 'react-redux';
+
+function VerificationRequests(props) {
+  const [vrequests, setVrequests] = useState([]);
+  useEffect(async () => {
+    const arr = await props.doctors.filter((doctor) => {
+      return doctor.profileVerified === 'In progress';
+    });
+    setVrequests(() => {
+      return arr;
+    });
+  }, []);
+
   return (
     <div>
       <Navbar />
       <div className='verificationRequests'>
-        <h2>Verification Requests</h2>
         <div className='section'>
           <div>
             <div className='verificationRequestsElements'>
-              <VerificationRequestElement />
-              <VerificationRequestElement />
-              <VerificationRequestElement />
+              {vrequests.map((req) => {
+                return <VerificationRequestElement content={req} />;
+              })}
             </div>
           </div>
         </div>
@@ -21,4 +32,10 @@ function VerificationRequests() {
   );
 }
 
-export default VerificationRequests;
+const mapStateToProps = (state) => {
+  return {
+    doctors: state.adminReducer.doctors,
+  };
+};
+
+export default connect(mapStateToProps)(VerificationRequests);

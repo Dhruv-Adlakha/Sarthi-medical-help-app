@@ -22,11 +22,10 @@ function Signup(props) {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     await props.dispatch(signUser(user));
-    if (props.isAuthenticated)
-      //to prevent the fetching of data if the user is not a valid user
-      await props.dispatch(getVolunteers());
-    if (props.isAuthenticated) await props.dispatch(getDoctors());
-    if (props.isAuthenticated) await props.dispatch(getNeedy());
+
+    await props.dispatch(getVolunteers());
+    await props.dispatch(getDoctors());
+    await props.dispatch(getNeedy());
   };
   return (
     <div>
@@ -73,18 +72,27 @@ function Signup(props) {
             </div>
             <button className='btn formLink'>Submit</button>
           </form>
-          {props.currUser.role === 'needy' && (
-            <Redirect to='/needy/dashboard' />
-          )}
-          {props.currUser.role === 'volunteer' && (
-            <Redirect to='/volunteer/dashboard' />
-          )}
+          {props.currUser.role === 'needy' &&
+            (props.currUser.profileVerified === 'Verified' ? (
+              <Redirect to='/needy/dashboard' />
+            ) : (
+              <Redirect to='/needy/updateProfile' />
+            ))}
+          {props.currUser.role === 'volunteer' &&
+            (props.currUser.profileVerified === 'Verified' ? (
+              <Redirect to='/volunteer/dashboard' />
+            ) : (
+              <Redirect to='/volunteers/profiles/updateProfile' />
+            ))}
           {props.currUser.role === 'admin' && (
             <Redirect to='/admin/dashboard' />
           )}
-          {props.currUser.role === 'doctor' && (
-            <Redirect to='/doctor/dashboard' />
-          )}
+          {props.currUser.role === 'doctor' &&
+            (props.currUser.profileVerified === 'Verified' ? (
+              <Redirect to='/doctor/dashboard' />
+            ) : (
+              <Redirect to='/doctors/profiles/updateProfile' />
+            ))}
         </div>
       </div>
     </div>

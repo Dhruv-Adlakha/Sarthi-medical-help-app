@@ -1,19 +1,19 @@
 import React from 'react';
 
-function VerificationRequestElement() {
+function VerificationRequestElement(props) {
   return (
     <div className='verificationRequestElement'>
       <div className='pane'>
         <p>
           <span>Name</span>
         </p>
-        <p>Ramesh sharma</p>
+        <p>{props.content.name}</p>
       </div>
       <div className='pane'>
         <p>
           <span>Role</span>
         </p>
-        <p>13/2,Mansarovar,Jaipur</p>
+        <p>{props.content.role}</p>
       </div>
       <div className='pane'>
         <p>

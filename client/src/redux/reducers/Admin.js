@@ -2,6 +2,7 @@ import {
   GET_DOCTORS,
   GET_VOLUNTEERS,
   GET_NEEDY,
+  SUBMIT_VERIFCATION_DOCTOR,
 } from '../actions/ActionConstants';
 
 const initState = {
@@ -27,6 +28,21 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         needy: action.payload,
+      };
+    case SUBMIT_VERIFCATION_DOCTOR:
+      return {
+        ...state,
+        doctors: state.doctors.map((doctor) => {
+          if (doctor._id !== action.payload._id) {
+            return doctor;
+          } else {
+            const keys = Object.keys(action.payload);
+            keys.forEach((key) => {
+              doctor[key] = action.payload[key];
+            });
+            return doctor;
+          }
+        }),
       };
     default:
       return {
