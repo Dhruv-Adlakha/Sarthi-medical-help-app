@@ -1,15 +1,16 @@
 import React from 'react';
 
-function DoctorProfile() {
+function DoctorProfile(props) {
   return (
     <div className='profile'>
-      <h2>Dr. Ashwin Pareek</h2>
+      <h2>{props.doctor.name}</h2>
       <p>
-        <span>Hospital: </span>AIIMS,Delhi
+        <span>Hospital: </span>
+        {props.doctor.hospital}
       </p>
       <p>
         <span>Speciality: </span>
-        Neurologist
+        {props.doctor.speciality}
       </p>
     </div>
   );

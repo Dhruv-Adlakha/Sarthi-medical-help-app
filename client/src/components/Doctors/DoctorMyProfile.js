@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import ServiceHistoryElement from '../ExtraPages/ServiceHistoryElement';
 
-function DoctorMyProfile() {
+function DoctorMyProfile(props) {
   return (
     <div>
       <Navbar />
@@ -15,38 +15,38 @@ function DoctorMyProfile() {
               <p>
                 <span>Name</span>
               </p>
-              <p>Dr. Umar Gul</p>
+              <p>{props.name}</p>
             </div>
 
             <div className='contentPane'>
               <p>
                 <span>Qualification</span>
               </p>
-              <p>MBBS</p>
+              <p>{props.qualification}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Speciality</span>
               </p>
-              <p>ENT</p>
+              <p>{props.speciality}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Hospital</span>
               </p>
-              <p>Jodhpur</p>
+              <p>{props.hospital}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Education</span>
               </p>
-              <p>SMS,Jaipur</p>
+              <p>{props.education}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Profile verified</span>
               </p>
-              <p>Yes</p>
+              <p>{props.profileVerified}</p>
             </div>
           </div>
           <Link to='/doctors/profiles/updateProfile' className='btn'>
