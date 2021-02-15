@@ -7,7 +7,7 @@ function VerificationRequests(props) {
   const [vrequests, setVrequests] = useState([]);
   useEffect(async () => {
     const arr = await props.doctors.filter((doctor) => {
-      return doctor.profileVerified === 'In progress';
+      return doctor.profileVerified === 'In process';
     });
     setVrequests(() => {
       return arr;

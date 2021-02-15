@@ -2,20 +2,25 @@ import axios from 'axios';
 
 export const submitVerification = (user) => {
   return async (dispatch) => {
-    const updates = {
-      profileVerified: 'In process',
-    };
     try {
+      user.profileVerified = 'In process';
+      console.log(user);
+      const token = localStorage.getItem('token');
       const updateRequest = await axios({
-        method: 'post',
+        method: 'patch',
         url: `/${user.role}/updateProfile/${user._id}`,
-        data: updates,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        data: user,
       });
       console.log(updateRequest);
-      user.profileVerified = 'In process';
+
       dispatch({
         type: 'SUBMIT_VERIFICATION_' + user.role.toUpperCase(),
-        payload: user,
+        payload: updateRequest.date,
       });
     } catch (error) {
       console.log(error);

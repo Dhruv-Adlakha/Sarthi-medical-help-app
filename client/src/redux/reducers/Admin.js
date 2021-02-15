@@ -36,13 +36,10 @@ const reducer = (state = initState, action) => {
           if (doctor._id !== action.payload._id) {
             return doctor;
           } else {
-            const keys = Object.keys(action.payload);
-            keys.forEach((key) => {
-              doctor[key] = action.payload[key];
-            });
-            return doctor;
+            return action.payload;
           }
         }),
+        currUser: action.payload,
       };
     default:
       return {
