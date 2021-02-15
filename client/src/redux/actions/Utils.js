@@ -20,7 +20,7 @@ export const submitVerification = (user) => {
 
       dispatch({
         type: 'SUBMIT_VERIFICATION_' + user.role.toUpperCase(),
-        payload: updateRequest.date,
+        payload: updateRequest.data,
       });
     } catch (error) {
       console.log(error);

@@ -1,40 +1,80 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import Navbar from '../Layout/Navbar';
+import { submitVerification } from '../../redux/actions/Utils';
 
-function NeedyUpdateProfile() {
+function NeedyUpdateProfile(props) {
+  const [newProfile, setNewProfile] = useState({
+    name: props.currUser.name,
+    age: props.currUser.age,
+    annualIncome: props.currUser.annualIncome,
+    gender: props.currUser.gender,
+    role: props.currUser.role,
+    _id: props.currUser._id,
+  });
+  const onChangeHandler = (e) => {
+    console.log(e.target.name);
+    setNewProfile({
+      ...newProfile,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    console.log(newProfile);
+    await props.dispatch(submitVerification(newProfile));
+  };
   return (
     <div>
       <Navbar />
       <div className='updateProfile'>
         <div className='full-form'>
           <h2>Update Profile</h2>
-          <form action=''>
+          <form action='' onSubmit={onSubmitHandler}>
             <div className='formArea'>
-              {' '}
               <div className='formElement'>
                 <label>
                   <span>Name</span>
                 </label>
-                <input type='text' name='name' />
+                <input
+                  type='text'
+                  name='name'
+                  defaultValue={newProfile.name}
+                  onChange={onChangeHandler}
+                />
               </div>
               <div className='formElement'>
                 <label>
                   <span>Yearly income</span>
                 </label>
-                <input type='text' name='income' />
+                <input
+                  type='text'
+                  name='annualIncome'
+                  defaultValue={newProfile.annualIncome}
+                  onChange={onChangeHandler}
+                />
               </div>
               <div className='formElement'>
                 <label>
                   <span>Age</span>
                 </label>
-                <input type='text' name='age' />
+                <input
+                  type='text'
+                  name='age'
+                  defaultValue={newProfile.age}
+                  onChange={onChangeHandler}
+                />
               </div>
               <div className='formElement'>
                 <label>
                   <span>Gender</span>
                 </label>
-                <input type='text' name='gender' />
+                <input
+                  type='text'
+                  name='gender'
+                  defaultValue={newProfile.gender}
+                  onChange={onChangeHandler}
+                />
               </div>
               <div className='formElement'>
                 <label>
@@ -53,7 +93,11 @@ function NeedyUpdateProfile() {
                 />
               </div>
             </div>
-            <button className='btn formLink'>Submit</button>
+            <button className='btn formLink'>
+              {props.currUser.profileVerified === 'In process'
+                ? 'In process'
+                : 'Submit'}
+            </button>
           </form>
         </div>
       </div>
@@ -61,4 +105,10 @@ function NeedyUpdateProfile() {
   );
 }
 
-export default NeedyUpdateProfile;
+const mapStateToProps = (state) => {
+  return {
+    currUser: state.authReducer.currUser,
+  };
+};
+
+export default connect(mapStateToProps)(NeedyUpdateProfile);

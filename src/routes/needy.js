@@ -27,8 +27,7 @@ router.patch('/needy/updateProfile/:id', auth, async (req, res) => {
     updates.map((update) => {
       user[update] = req.body[update];
     });
-
-    user['profileVerified'] = 'In process';
+    await user.save();
     res.send(user);
   } catch (error) {
     res.status(500).send(error);

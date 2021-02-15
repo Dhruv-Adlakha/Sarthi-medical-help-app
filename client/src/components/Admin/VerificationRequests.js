@@ -6,13 +6,21 @@ import { connect } from 'react-redux';
 function VerificationRequests(props) {
   const [vrequests, setVrequests] = useState([]);
   useEffect(async () => {
-    const arr = await props.doctors.filter((doctor) => {
+    const a1 = await props.doctors.filter((doctor) => {
       return doctor.profileVerified === 'In process';
     });
+    const a2 = await props.needy.filter((e) => {
+      return e.profileVerified === 'In process';
+    });
+    const a3 = await props.volunteers.filter((e) => {
+      return e.profileVerified === 'In process';
+    });
+    const arr = [...a1, ...a2, ...a3];
+    console.log(arr);
     setVrequests(() => {
       return arr;
     });
-  });
+  }, []); //here try something different to make the page reload
 
   return (
     <div>
@@ -35,6 +43,8 @@ function VerificationRequests(props) {
 const mapStateToProps = (state) => {
   return {
     doctors: state.adminReducer.doctors,
+    needy: state.adminReducer.needy,
+    volunteers: state.adminReducer.volunteers,
   };
 };
 
