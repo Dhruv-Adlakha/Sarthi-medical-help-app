@@ -3,6 +3,7 @@ import Navbar from '../Layout/Navbar';
 import { signUser } from '../../redux/actions/Auth';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { getVolunteers, getDoctors, getNeedy } from '../../redux/actions/Admin';
 
 function Signup(props) {
   const [user, setUser] = useState({
@@ -20,8 +21,12 @@ function Signup(props) {
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(user);
     await props.dispatch(signUser(user));
+    if (props.isAuthenticated)
+      //to prevent the fetching of data if the user is not a valid user
+      await props.dispatch(getVolunteers());
+    if (props.isAuthenticated) await props.dispatch(getDoctors());
+    if (props.isAuthenticated) await props.dispatch(getNeedy());
   };
   return (
     <div>

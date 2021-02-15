@@ -1,19 +1,20 @@
 import React from 'react';
 
-function PatientProfile() {
+function PatientProfile(props) {
   return (
     <div className='profile'>
-      <h2>Motilal sharma</h2>
+      <h2>{props.patient.name}</h2>
       <p>
-        <span>Age: </span>34
+        <span>Age: </span>
+        {props.patient.age}
       </p>
       <p>
         <span>Gender: </span>
-        Male
+        {props.patient.gender}
       </p>
       <p>
         <span>Address: </span>
-        34/52,Malviya nagar,Jaipur
+        {props.patient.address}
       </p>
     </div>
   );

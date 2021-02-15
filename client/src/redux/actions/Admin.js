@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_DOCTORS, GET_VOLUNTEERS } from './ActionConstants';
+import { GET_DOCTORS, GET_VOLUNTEERS, GET_NEEDY } from './ActionConstants';
 
 export const getDoctors = () => {
   return async (dispatch) => {
@@ -24,6 +24,21 @@ export const getVolunteers = () => {
         type: GET_VOLUNTEERS,
         payload: volunteers.data,
       });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getNeedy = () => {
+  return async (dispatch) => {
+    try {
+      const needy = await axios.get('/admin/needyProfiles');
+      dispatch({
+        type: GET_NEEDY,
+        payload: needy.data,
+      });
+      return;
     } catch (error) {
       console.log(error);
     }

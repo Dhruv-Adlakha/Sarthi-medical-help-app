@@ -2,12 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import VolunteerProfile from '../Admin/VolunteerProfile';
 import Navbar from '../Layout/Navbar';
-import { getVolunteers } from '../../redux/actions/Admin';
 
 function AllVolunteers(props) {
-  useEffect(() => {
-    props.dispatch(getVolunteers());
-  }, []);
   return (
     <div>
       <Navbar />

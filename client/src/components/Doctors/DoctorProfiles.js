@@ -2,14 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Layout/Navbar';
 import DoctorProfile from '../Doctors/DoctorProfile';
-import { getDoctors } from '../../redux/actions/Admin';
 
 function DoctorProfiles(props) {
-  useEffect(async () => {
-    console.log('useeffect');
-    await props.dispatch(getDoctors());
-    console.log(props.doctors);
-  }, []);
   return (
     <div>
       <Navbar />
@@ -27,7 +21,6 @@ function DoctorProfiles(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.adminReducer.doctors);
   return {
     doctors: state.adminReducer.doctors,
   };

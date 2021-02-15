@@ -27,7 +27,7 @@ router.get('/admin/volunteerProfiles', async (req, res) => {
 });
 
 //get all needy
-router.get('/admin/needyProfiles', auth, async (req, res) => {
+router.get('/admin/needyProfiles', async (req, res) => {
   try {
     const needy = await Needy.find({});
     res.send(needy);
