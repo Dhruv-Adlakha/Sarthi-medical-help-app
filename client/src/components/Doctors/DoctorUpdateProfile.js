@@ -105,7 +105,9 @@ function DoctorUpdateProfile(props) {
               </div>
             </div>
             <button className='btn formLink'>
-              {props.profileVerified === 'In process' ? 'In process' : 'Submit'}
+              {props.currUser.profileVerified === 'In process'
+                ? 'In process'
+                : 'Submit'}
             </button>
           </form>
         </div>

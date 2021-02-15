@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
+import { connect } from 'react-redux';
 import ServiceHistoryElement from '../ExtraPages/ServiceHistoryElement';
 
-function VolunteerMyProfile() {
+function VolunteerMyProfile(props) {
   return (
     <div>
       <Navbar />
@@ -15,38 +16,38 @@ function VolunteerMyProfile() {
               <p>
                 <span>Name</span>
               </p>
-              <p>Ravi Sharma</p>
+              <p>{props.currUser.name}</p>
             </div>
 
             <div className='contentPane'>
               <p>
                 <span>Age</span>
               </p>
-              <p>25</p>
+              <p>{props.currUser.age}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Address</span>
               </p>
-              <p>12/33, Mansarovar, Jaipur</p>
+              <p>{props.currUser.address}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Phone</span>
               </p>
-              <p>9273944213</p>
+              <p>{props.currUser.phone}</p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Total service count</span>
               </p>
-              <p>32</p>
+              <p></p>
             </div>
             <div className='contentPane'>
               <p>
                 <span>Profile verified</span>
               </p>
-              <p>Yes</p>
+              <p>{props.currUser.profileVerified}</p>
             </div>
           </div>
           <Link to='/volunteers/profiles/updateProfile' className='btn'>
@@ -67,4 +68,10 @@ function VolunteerMyProfile() {
   );
 }
 
-export default VolunteerMyProfile;
+const mapStateToProps = (state) => {
+  return {
+    currUser: state.authReducer.currUser,
+  };
+};
+
+export default connect(mapStateToProps)(VolunteerMyProfile);
