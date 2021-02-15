@@ -17,8 +17,8 @@ function DoctorProfiles(props) {
         <h2>Doctors</h2>
         <div className='cardsPane'>
           {props.doctors &&
-            props.doctors.map((doctor) => {
-              return <DoctorProfile doctor={doctor} />;
+            props.doctors.map((doctor, index) => {
+              return <DoctorProfile doctor={doctor} key={index} />;
             })}
         </div>
       </div>

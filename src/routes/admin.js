@@ -17,7 +17,7 @@ router.get('/admin/doctorProfiles', async (req, res) => {
 });
 
 //get all volunteers
-router.get('/admin/volunteerProfiles', auth, async (req, res) => {
+router.get('/admin/volunteerProfiles', async (req, res) => {
   try {
     const volunteers = await Volunteer.find({});
     res.send(volunteers);

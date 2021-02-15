@@ -14,23 +14,28 @@ router.post('/signup', async (req, res) => {
   }
   try {
     let user;
+    const content = {
+      name: req.body.name,
+      email: req.body.email,
+      role: req.body.role,
+      password: req.body.password,
+      profileVerified: 'In progress',
+    };
     if (req.body.role === 'doctor') {
-      user = new Doctor(req.body);
+      user = new Doctor(content);
     } else if (req.body.role === 'volunteer') {
-      user = new Volunteer(req.body);
+      user = new Volunteer(content);
     } else if (req.body.role === 'needy') {
-      user = new Needy(req.body);
+      user = new Needy(content);
     } else {
-      user = new Admin(req.body);
+      user = new Admin(content);
     }
 
     const password = req.body.password;
     const hashedPassword = await bcrypt.hash(password.toString(), 8);
     user.password = hashedPassword;
 
-    console.log(user);
     const token = await user.generateAuthToken();
-    console.log(token);
     res.send({ user, token });
   } catch (err) {
     res.status(500).send(err);
@@ -38,7 +43,7 @@ router.post('/signup', async (req, res) => {
 });
 
 //login user based on role of the user
-router.post('/login', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
   try {
     let user;
     if (req.body.role === 'doctor') {

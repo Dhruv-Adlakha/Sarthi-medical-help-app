@@ -39,6 +39,10 @@ const volunteerSchema = new mongoose.Schema({
   volunteerToken: {
     type: String,
   },
+  role: {
+    type: String,
+    required: true,
+  },
 });
 
 volunteerSchema.methods.generateAuthToken = async function () {

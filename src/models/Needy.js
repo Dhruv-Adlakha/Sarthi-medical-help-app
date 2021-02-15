@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 const needySchema = new mongoose.Schema({
   name: {
@@ -30,6 +31,10 @@ const needySchema = new mongoose.Schema({
   needyToken: {
     type: String,
   },
+  role: {
+    type: String,
+    required: true,
+  },
 });
 
 needySchema.methods.generateAuthToken = async function () {
@@ -41,7 +46,9 @@ needySchema.methods.generateAuthToken = async function () {
       expiresIn: 200000,
     }
   );
+  console.log(token);
   needy.needyToken = token;
+  console.log(needy);
   await needy.save();
   return token;
 };

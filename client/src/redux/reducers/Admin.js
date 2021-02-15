@@ -1,4 +1,4 @@
-import { GET_DOCTORS } from '../actions/ActionConstants';
+import { GET_DOCTORS, GET_VOLUNTEERS } from '../actions/ActionConstants';
 
 const initState = {
   doctors: [],
@@ -13,6 +13,11 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         doctors: action.payload,
+      };
+    case GET_VOLUNTEERS:
+      return {
+        ...state,
+        volunteers: action.payload,
       };
     default:
       return {

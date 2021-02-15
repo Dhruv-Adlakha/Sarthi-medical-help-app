@@ -34,6 +34,10 @@ const doctorSchema = new mongoose.Schema({
   doctorToken: {
     type: String,
   },
+  role: {
+    type: String,
+    required: true,
+  },
 });
 
 doctorSchema.methods.generateAuthToken = async function () {

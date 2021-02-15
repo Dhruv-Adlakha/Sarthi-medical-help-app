@@ -16,7 +16,7 @@ router.post('/volunteer/trust', auth, async (req, res) => {
     const volunteer = await Volunteer.findById(req.body._id);
     const tt = new TrustItem(trustItem);
     volunteer.trustItems.push(tt);
-    console.log(volunteer);
+
     await volunteer.save();
     res.send(volunteer);
   } catch (error) {

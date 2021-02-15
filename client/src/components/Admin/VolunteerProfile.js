@@ -1,23 +1,24 @@
 import React from 'react';
 
-function VolunteerProfile() {
+function VolunteerProfile(props) {
   return (
     <div className='profile'>
-      <h2>Rishabh pareek</h2>
+      <h2>{props.volunteer.name}</h2>
       <p>
-        <span>Age: </span>34
+        <span>Age: </span>
+        {props.volunteer.age}
       </p>
       <p>
         <span>Gender: </span>
-        Male
+        {props.volunteer.gender}
       </p>
       <p>
         <span>Address: </span>
-        34/52,Malviya nagar,Jaipur
+        {props.volunteer.address}
       </p>
       <p>
         <span>Phone: </span>
-        9233522214
+        {props.volunteer.phone}
       </p>
     </div>
   );

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -15,6 +16,13 @@ const adminSchema = new mongoose.Schema({
     required: true,
   },
   adminToken: {
+    type: String,
+  },
+  role: {
+    type: String,
+    required: true,
+  },
+  profileVerified: {
     type: String,
   },
 });

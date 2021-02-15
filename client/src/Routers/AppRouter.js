@@ -33,7 +33,7 @@ const AppRouter = () => (
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Signup} />
       <Route path='/about' component={About} />
-      <Route path='/doctors/dashboard' component={DoctorDashboard} />
+      <Route path='/doctor/dashboard' component={DoctorDashboard} />
       <Route path='/doctors/profiles' component={DoctorProfiles} exact={true} />
       <Route path='/doctors/requests' component={DoctorRequests} exact={true} />
       <Route path='/doctors/profiles/me' component={DoctorMyProfile} />
@@ -53,7 +53,7 @@ const AppRouter = () => (
       <Route path='/needy/doctorVisit' component={DoctorVisit} />
       <Route path='/needy/currentVisit' component={CurrentVisit} />
 
-      <Route path='/volunteers/dashboard' component={VolunteerDashboard} />
+      <Route path='/volunteer/dashboard' component={VolunteerDashboard} />
       <Route path='/volunteers/profiles/me' component={VolunteerMyProfile} />
       <Route
         path='/volunteers/profiles/updateProfile'
