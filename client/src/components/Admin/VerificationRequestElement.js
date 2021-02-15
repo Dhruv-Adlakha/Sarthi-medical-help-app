@@ -1,6 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { acceptDoctorVerification } from '../../redux/actions/Admin';
 
 function VerificationRequestElement(props) {
+  const onAcceptHandler = () => {
+    props.dispatch(acceptDoctorVerification(props.content));
+  };
   return (
     <div className='verificationRequestElement'>
       <div className='pane'>
@@ -22,9 +27,15 @@ function VerificationRequestElement(props) {
         <p>doc__links</p>
       </div>
 
-      <button className='btn'>Accept</button>
+      <button className='btn' onClick={onAcceptHandler}>
+        Accept
+      </button>
     </div>
   );
 }
 
-export default VerificationRequestElement;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps)(VerificationRequestElement);

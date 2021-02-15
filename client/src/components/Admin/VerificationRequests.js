@@ -12,7 +12,7 @@ function VerificationRequests(props) {
     setVrequests(() => {
       return arr;
     });
-  }, []);
+  });
 
   return (
     <div>
