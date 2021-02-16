@@ -8,17 +8,17 @@ const auth = require('../middleware/auth');
 //create trust item
 router.post('/volunteer/trust', auth, async (req, res) => {
   try {
+    //console.log(req.body);
     const trustItem = {
       amount: req.body.amount,
       address: req.body.address,
       modeOfPayment: req.body.modeOfPayment,
+      contributer: req.body.contributer,
     };
-    const volunteer = await Volunteer.findById(req.body._id);
     const tt = new TrustItem(trustItem);
-    volunteer.trustItems.push(tt);
-
-    await volunteer.save();
-    res.send(volunteer);
+    // console.log(tt);
+    await tt.save();
+    res.send(tt);
   } catch (error) {
     res.status(500).send(error);
   }

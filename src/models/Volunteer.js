@@ -28,14 +28,6 @@ const volunteerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  trustItems: [
-    {
-      trustItem: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'TrustItem',
-      },
-    },
-  ],
   volunteerToken: {
     type: String,
   },

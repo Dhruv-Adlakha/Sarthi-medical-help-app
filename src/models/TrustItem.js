@@ -12,6 +12,9 @@ const trustItemSchema = new mongoose.Schema({
   address: {
     type: String,
   },
+  modeOfPayment: {
+    type: String,
+  },
 });
 
 const trustItem = mongoose.model('TrustItem', trustItemSchema);
