@@ -25,15 +25,20 @@ function VerificationRequests(props) {
   return (
     <div>
       <Navbar />
+
       <div className='verificationRequests'>
         <div className='section'>
-          <div>
-            <div className='verificationRequestsElements'>
-              {vrequests.map((req) => {
-                return <VerificationRequestElement content={req} />;
-              })}
+          {vrequests.length === 0 ? (
+            <h3>No requests</h3>
+          ) : (
+            <div>
+              <div className='verificationRequestsElements'>
+                {vrequests.map((req) => {
+                  return <VerificationRequestElement content={req} />;
+                })}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

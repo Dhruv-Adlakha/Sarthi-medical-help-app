@@ -105,3 +105,11 @@ form input {
 .isHover:hover {
   background-color: $theme-light-blue;
 }
+
+.green {
+  background-color: green;
+}
+
+.green:hover {
+  background-color: rgb(2, 78, 2);
+}

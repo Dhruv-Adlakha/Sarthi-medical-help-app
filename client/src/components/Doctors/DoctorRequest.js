@@ -11,6 +11,7 @@ function DoctorRequest() {
         ache also.pppppp
       </p>
       <div className='buttonSection'>
+        <button className='btn green'>Accept</button>
         <NavLink to='/doctors/requests/prescribe' className='btn'>
           Prescribe medicines
         </NavLink>

@@ -4,6 +4,7 @@ import {
   GET_VOLUNTEERS,
   GET_NEEDY,
   GET_REQUESTS,
+  GET_TRUST,
 } from './ActionConstants';
 
 export const getDoctors = () => {
@@ -58,6 +59,37 @@ export const getRequests = () => {
       dispatch({
         type: GET_REQUESTS,
         payload: requests.data,
+      });
+
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getTrust = () => {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem('token');
+      const requests = await axios({
+        method: 'get',
+        url: '/admin/trust',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      dispatch({
+        type: GET_TRUST,
+        payload: requests.data,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       return;

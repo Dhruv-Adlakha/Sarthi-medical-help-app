@@ -8,12 +8,14 @@ import {
   ACCEPT_VERIFICATION_VOLUNTEER,
   SUBMIT_VERIFCATION_NEEDY,
   ACCEPT_VERIFICATION_NEEDY,
+  GET_TRUST,
 } from '../actions/ActionConstants';
 
 const initState = {
   doctors: [],
   volunteers: [],
   needy: [],
+  trust: [],
 };
 
 const reducer = (state = initState, action) => {
@@ -33,6 +35,11 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         needy: action.payload,
+      };
+    case GET_TRUST:
+      return {
+        ...state,
+        trust: action.payload,
       };
     case SUBMIT_VERIFCATION_DOCTOR:
       return {

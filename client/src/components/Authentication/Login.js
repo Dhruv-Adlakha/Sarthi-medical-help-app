@@ -8,6 +8,7 @@ import {
   getDoctors,
   getNeedy,
   getRequests,
+  getTrust,
 } from '../../redux/actions/Admin';
 
 function Login(props) {
@@ -30,6 +31,7 @@ function Login(props) {
     await props.dispatch(getDoctors());
     await props.dispatch(getNeedy());
     await props.dispatch(getRequests());
+    await props.dispatch(getTrust());
   };
   return (
     <div>
