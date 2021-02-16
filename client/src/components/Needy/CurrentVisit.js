@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Layout/Navbar';
+import { connect } from 'react-redux';
 
-function CurrentVisit() {
+function CurrentVisit(props) {
+  const [appStatus, setAppStatus] = useState(0);
+  useEffect(async () => {
+    console.log(props.requests, props.currUser);
+    const req = await props.requests.filter((e) => {
+      return e.patient == props.currUser._id && e.applicationStatus > 0;
+    });
+    console.log(req);
+    setAppStatus(() => req[0].applicationStatus);
+  });
   return (
     <div>
       <Navbar />
@@ -14,12 +24,48 @@ function CurrentVisit() {
         <div className='status'>
           <h2>Current visit status</h2>
           <div className='statusBars'>
-            <div className='statusBarsElement done'>Application completed</div>
-            <div className='statusBarsElement done'>Volunteer assigned</div>
-            <div className='statusBarsElement done'>Volunteer at home</div>
-            <div className='statusBarsElement'>Doctor visit done</div>
-            <div className='statusBarsElement'>Medicines ready to deliver</div>
-            <div className='statusBarsElement'>Medicines delivered</div>
+            <div
+              className={
+                appStatus >= 1 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Application completed
+            </div>
+            <div
+              className={
+                appStatus >= 2 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Volunteer assigned
+            </div>
+            <div
+              className={
+                appStatus >= 3 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Volunteer at home
+            </div>
+            <div
+              className={
+                appStatus >= 4 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Doctor visit done
+            </div>
+            <div
+              className={
+                appStatus >= 5 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Medicines ready to deliver
+            </div>
+            <div
+              className={
+                appStatus >= 6 ? 'statusBarsElement done' : 'statusBarsElement'
+              }
+            >
+              Medicines delivered
+            </div>
           </div>
 
           <div className='depictor'>
@@ -47,4 +93,11 @@ function CurrentVisit() {
   );
 }
 
-export default CurrentVisit;
+const mapStateToProps = (state) => {
+  return {
+    requests: state.needyReducer.requests,
+    currUser: state.authReducer.currUser,
+  };
+};
+
+export default connect(mapStateToProps)(CurrentVisit);

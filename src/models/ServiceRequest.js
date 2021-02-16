@@ -36,6 +36,9 @@ const requestSchema = new mongoose.Schema({
       },
     },
   ],
+  applicationStatus: {
+    type: Number,
+  },
 });
 
 const ServiceRequest = mongoose.model('Request', requestSchema);

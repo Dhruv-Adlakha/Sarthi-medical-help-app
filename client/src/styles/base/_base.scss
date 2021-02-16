@@ -36,6 +36,10 @@ a {
   background-color: $theme-dark-red;
 }
 
+.btn:disabled {
+  background-color: $theme-dark-red;
+}
+
 // forms
 
 .full-form {

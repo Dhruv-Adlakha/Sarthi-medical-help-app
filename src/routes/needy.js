@@ -38,13 +38,13 @@ router.patch('/needy/updateProfile/:id', auth, async (req, res) => {
 router.post('/needy/helpRequest', auth, async (req, res) => {
   try {
     const patient = await Needy.findById(req.body.patientId);
-    const doctor = await Doctor.findById(req.body.doctorId);
+    console.log(patient);
     const helpRequest = new ServiceRequest({
       problem: req.body.problem,
       description: req.body.description,
       patient: patient._id,
-      doctor: doctor._id,
     });
+    helpRequest.applicationStatus = 1;
     await helpRequest.save();
     res.send(helpRequest);
   } catch (error) {
