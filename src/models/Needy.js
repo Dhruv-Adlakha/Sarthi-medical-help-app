@@ -31,6 +31,9 @@ const needySchema = new mongoose.Schema({
   needyToken: {
     type: String,
   },
+  address: {
+    type: String,
+  },
   role: {
     type: String,
     required: true,

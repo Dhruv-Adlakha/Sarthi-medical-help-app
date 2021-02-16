@@ -10,6 +10,7 @@ function NeedyUpdateProfile(props) {
     annualIncome: props.currUser.annualIncome,
     gender: props.currUser.gender,
     role: props.currUser.role,
+    address: props.currUser.address,
     _id: props.currUser._id,
   });
   const onChangeHandler = (e) => {
@@ -51,6 +52,17 @@ function NeedyUpdateProfile(props) {
                   type='text'
                   name='annualIncome'
                   defaultValue={newProfile.annualIncome}
+                  onChange={onChangeHandler}
+                />
+              </div>
+              <div className='formElement'>
+                <label>
+                  <span>Address</span>
+                </label>
+                <input
+                  type='text'
+                  name='address'
+                  defaultValue={newProfile.address}
                   onChange={onChangeHandler}
                 />
               </div>

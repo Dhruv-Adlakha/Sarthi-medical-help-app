@@ -3,7 +3,12 @@ import Navbar from '../Layout/Navbar';
 import { loginUser } from '../../redux/actions/Auth';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { getVolunteers, getDoctors, getNeedy } from '../../redux/actions/Admin';
+import {
+  getVolunteers,
+  getDoctors,
+  getNeedy,
+  getRequests,
+} from '../../redux/actions/Admin';
 
 function Login(props) {
   const [user, setUser] = useState({
@@ -24,6 +29,7 @@ function Login(props) {
     await props.dispatch(getVolunteers());
     await props.dispatch(getDoctors());
     await props.dispatch(getNeedy());
+    await props.dispatch(getRequests());
   };
   return (
     <div>

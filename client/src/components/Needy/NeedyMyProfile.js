@@ -34,6 +34,12 @@ function NeedyMyProfile(props) {
               </div>
               <div className='contentPane'>
                 <p>
+                  <span>Address</span>
+                </p>
+                <p>{props.currUser.address}</p>
+              </div>
+              <div className='contentPane'>
+                <p>
                   <span>Gender</span>
                 </p>
                 <p>{props.currUser.gender}</p>

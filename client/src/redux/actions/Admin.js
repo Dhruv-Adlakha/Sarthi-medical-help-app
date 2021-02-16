@@ -3,7 +3,7 @@ import {
   GET_DOCTORS,
   GET_VOLUNTEERS,
   GET_NEEDY,
-  ACCEPT_VERIFICATION_DOCTOR,
+  GET_REQUESTS,
 } from './ActionConstants';
 
 export const getDoctors = () => {
@@ -43,6 +43,23 @@ export const getNeedy = () => {
         type: GET_NEEDY,
         payload: needy.data,
       });
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getRequests = () => {
+  return async (dispatch) => {
+    try {
+      const requests = await axios.get('/admin/requests');
+      console.log(requests.data);
+      dispatch({
+        type: GET_REQUESTS,
+        payload: requests.data,
+      });
+
       return;
     } catch (error) {
       console.log(error);
