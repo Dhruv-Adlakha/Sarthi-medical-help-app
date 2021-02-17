@@ -47,4 +47,21 @@ router.post('/doctor/prescribeMedicines/:id', auth, async (req, res) => {
   }
 });
 
+//accept patient request
+router.patch('/doctor/patientRequests/:id', auth, async (req, res) => {
+  try {
+    const patientRequest = await ServiceRequest.findById(req.params.id);
+    if (!patientRequest) {
+      return res.status(404).send('No such request found');
+    }
+    // console.log(patientRequest);
+    patientRequest.doctor = req.user._id;
+    patientRequest.applicationStatus = 2;
+    await patientRequest.save();
+    res.send(patientRequest);
+  } catch (error) {
+    res.status(500).send(err);
+  }
+});
+
 module.exports = router;

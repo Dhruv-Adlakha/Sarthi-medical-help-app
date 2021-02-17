@@ -1,4 +1,8 @@
-import { NEEDY_HELP_REQUEST, GET_REQUESTS } from '../actions/ActionConstants';
+import {
+  NEEDY_HELP_REQUEST,
+  GET_REQUESTS,
+  DOCTOR_ACCEPT_REQUEST,
+} from '../actions/ActionConstants';
 
 const initState = {
   requests: [],
@@ -16,6 +20,17 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         requests: action.payload,
+      };
+    case DOCTOR_ACCEPT_REQUEST:
+      return {
+        ...state,
+        requests: state.requests.map((e) => {
+          if (e._id === action.payload._id) {
+            return action.payload;
+          } else {
+            return e;
+          }
+        }),
       };
     default:
       return {
