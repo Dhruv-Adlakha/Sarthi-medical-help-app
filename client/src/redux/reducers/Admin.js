@@ -9,6 +9,9 @@ import {
   SUBMIT_VERIFCATION_NEEDY,
   ACCEPT_VERIFICATION_NEEDY,
   GET_TRUST,
+  DELETE_DOCTOR,
+  DELETE_NEEDY,
+  DELETE_VOLUNTEER,
 } from '../actions/ActionConstants';
 
 const initState = {
@@ -112,6 +115,29 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+      };
+    case DELETE_DOCTOR:
+      return {
+        ...state,
+        doctors: state.doctors.filter((e) => e._id !== action.payload._id),
+        currUser: '',
+        isAuthenticated: false,
+      };
+    case DELETE_NEEDY:
+      return {
+        ...state,
+        needy: state.needy.filter((e) => e._id !== action.payload._id),
+        currUser: '',
+        isAuthenticated: false,
+      };
+    case DELETE_VOLUNTEER:
+      return {
+        ...state,
+        volunteers: state.volunteers.filter(
+          (e) => e._id !== action.payload._id
+        ),
+        currUser: '',
+        isAuthenticated: false,
       };
     default:
       return {

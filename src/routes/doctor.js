@@ -64,4 +64,18 @@ router.patch('/doctor/patientRequests/:id', auth, async (req, res) => {
   }
 });
 
+//delete own profile
+router.delete('/doctor/delete/:id', auth, async (req, res) => {
+  try {
+    const doctor = await Doctor.findById(req.params.id);
+    if (!doctor) {
+      return res.status(404).send('Doctor not found');
+    }
+    await doctor.delete();
+    res.send(doctor);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 module.exports = router;

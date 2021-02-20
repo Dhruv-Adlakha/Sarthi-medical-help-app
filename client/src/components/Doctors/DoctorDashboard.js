@@ -1,9 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import DoctorDashboardImage from '../../images/doctorDashboardImage.jpg';
+import { connect } from 'react-redux';
+import { deleteDoctor } from '../../redux/actions/Doctor';
 
-function DoctorDashboard() {
+function DoctorDashboard(props) {
+  const [deleted, setDeleted] = useState(false);
+  const onClickHandler = () => {
+    props.dispatch(deleteDoctor(props.currUser));
+    setDeleted(true);
+  };
   return (
     <div>
       <Navbar />
@@ -22,13 +29,20 @@ function DoctorDashboard() {
           <Link to='/doctors/profiles/updateProfile' className='btn'>
             Update profile
           </Link>
-          <Link to='/login' className='btn'>
+          <button to='/login' className='btn' onClick={onClickHandler}>
             Delete profile
-          </Link>
+          </button>
+          {deleted && <Redirect to='/' />}
         </div>
       </div>
     </div>
   );
 }
 
-export default DoctorDashboard;
+const mapStateToProps = (state) => {
+  return {
+    currUser: state.authReducer.currUser,
+  };
+};
+
+export default connect(mapStateToProps)(DoctorDashboard);

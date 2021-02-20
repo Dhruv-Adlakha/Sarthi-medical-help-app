@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { DELETE_NEEDY } from './ActionConstants';
 
 export const needyHelpRequest = (problem) => {
   return async (dispatch) => {
@@ -18,6 +19,30 @@ export const needyHelpRequest = (problem) => {
       dispatch({
         type: 'NEEDY_HELP_REQUEST',
         payload: helpRequest.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteNeedy = (needyUser) => {
+  return async (dispatch) => {
+    const token = localStorage.getItem('token');
+    try {
+      const needy = await axios({
+        method: 'delete',
+        url: `/needy/delete/${needyUser._id}`,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.setItem('token', null);
+      dispatch({
+        type: DELETE_NEEDY,
+        payload: needy.data,
       });
     } catch (error) {
       console.log(error);

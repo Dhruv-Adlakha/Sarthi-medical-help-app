@@ -24,3 +24,16 @@
   padding: 0.5rem;
   color: whitesmoke;
 }
+
+.doctorRequest .acceptButton {
+  background-color: green;
+}
+
+.doctorRequest .acceptButton:hover {
+  background-color: rgb(2, 88, 2);
+}
+
+.doctorRequest .acceptButton:disabled {
+  background-color: $theme-white;
+  color: green;
+}

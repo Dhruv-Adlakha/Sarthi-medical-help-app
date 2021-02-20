@@ -52,4 +52,18 @@ router.post('/needy/helpRequest', auth, async (req, res) => {
   }
 });
 
+//delete own profile
+router.delete('/needy/delete/:id', auth, async (req, res) => {
+  try {
+    const needy = await Needy.findById(req.params.id);
+    if (!needy) {
+      return res.status(404).send('Needy not found');
+    }
+    await needy.delete();
+    res.send(needy);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 module.exports = router;

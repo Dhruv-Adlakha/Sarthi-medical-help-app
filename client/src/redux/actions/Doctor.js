@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { DOCTOR_ACCEPT_REQUEST } from '../actions/ActionConstants';
+import {
+  DOCTOR_ACCEPT_REQUEST,
+  DELETE_DOCTOR,
+} from '../actions/ActionConstants';
 
 export const doctorAcceptRequest = (requestId) => {
   return async (dispatch) => {
@@ -18,6 +21,30 @@ export const doctorAcceptRequest = (requestId) => {
       dispatch({
         type: DOCTOR_ACCEPT_REQUEST,
         payload: currRequest.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteDoctor = (doctorUser) => {
+  return async (dispatch) => {
+    const token = localStorage.getItem('token');
+    try {
+      const doctor = await axios({
+        method: 'delete',
+        url: `/doctor/delete/${doctorUser._id}`,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.setItem('token', null);
+      dispatch({
+        type: DELETE_DOCTOR,
+        payload: doctor.data,
       });
     } catch (error) {
       console.log(error);

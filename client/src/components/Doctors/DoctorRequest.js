@@ -5,11 +5,15 @@ import { doctorAcceptRequest } from '../../redux/actions/Doctor';
 
 function DoctorRequest(props) {
   const [request, setRequest] = useState('');
+  const [updated, setUpdated] = useState(false);
   useEffect(() => {
     setRequest(props.requests.find((e) => e._id === props.id));
   }, []);
   const onAcceptHandler = () => {
-    props.dispatch(doctorAcceptRequest(request));
+    const res = props.dispatch(doctorAcceptRequest(request));
+    if (res) {
+      setUpdated(true);
+    }
   };
   return (
     <div className='doctorRequest'>
@@ -17,8 +21,12 @@ function DoctorRequest(props) {
       <h5>Patient: {props.patient && props.patient.name}</h5>
       <p>{props.description}</p>
       <div className='buttonSection'>
-        <button className='btn green' onClick={onAcceptHandler}>
-          Accept
+        <button
+          className='btn acceptButton'
+          onClick={onAcceptHandler}
+          disabled={props.applicationStatus === 2}
+        >
+          {props.applicationStatus === 2 ? 'Accepted' : 'Accept'}
         </button>
         <NavLink to='/doctors/requests/prescribe' className='btn'>
           Prescribe medicines

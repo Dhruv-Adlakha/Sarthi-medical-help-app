@@ -78,4 +78,18 @@ router.post('/volunteer/patientRequest/:id', auth, async (req, res) => {
   }
 });
 
+//delete own profile
+router.delete('/volunteer/delete/:id', auth, async (req, res) => {
+  try {
+    const volunteer = await Volunteer.findById(req.params.id);
+    if (!volunteer) {
+      return res.status(404).send('Volunteer not found');
+    }
+    await volunteer.delete();
+    res.send(volunteer);
+  } catch (error) {
+    res.status(500).send(err);
+  }
+});
+
 module.exports = router;

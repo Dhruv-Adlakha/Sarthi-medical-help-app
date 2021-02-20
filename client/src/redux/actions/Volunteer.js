@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CONTRIBUTE_TRUST } from './ActionConstants';
+import { CONTRIBUTE_TRUST, DELETE_VOLUNTEER } from './ActionConstants';
 
 export const contributeTrust = (trust) => {
   return async (dispatch) => {
@@ -20,6 +20,30 @@ export const contributeTrust = (trust) => {
       console.log(trustContributed.data);
       dispatch({
         type: CONTRIBUTE_TRUST,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteVolunteer = (volunteerUser) => {
+  return async (dispatch) => {
+    const token = localStorage.getItem('token');
+    try {
+      const volunteer = await axios({
+        method: 'delete',
+        url: `/volunteer/delete/${volunteerUser._id}`,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.setItem('token', null);
+      dispatch({
+        type: DELETE_VOLUNTEER,
+        payload: volunteer.data,
       });
     } catch (error) {
       console.log(error);

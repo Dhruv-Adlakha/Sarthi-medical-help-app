@@ -1,9 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import NeedyDashboardImage from '../../images/needyDashboard.jpeg';
+import { deleteNeedy } from '../../redux/actions/Needy';
+import { connect } from 'react-redux';
 
-function NeedyDashboard() {
+function NeedyDashboard(props) {
+  const [deleted, setDeleted] = useState(false);
+  const onClickHandler = () => {
+    props.dispatch(deleteNeedy(props.currUser));
+    setDeleted(true);
+  };
   return (
     <div>
       <Navbar />
@@ -26,13 +33,20 @@ function NeedyDashboard() {
           <Link to='/needy/updateProfile' className='btn'>
             Update profile
           </Link>
-          <Link to='/login' className='btn'>
+          <Link to='/login' className='btn' onClick={onClickHandler}>
             Delete profile
           </Link>
+          {deleted && <Redirect to='/' />}
         </div>
       </div>
     </div>
   );
 }
 
-export default NeedyDashboard;
+const mapStateToProps = (state) => {
+  return {
+    currUser: state.authReducer.currUser,
+  };
+};
+
+export default connect(mapStateToProps)(NeedyDashboard);

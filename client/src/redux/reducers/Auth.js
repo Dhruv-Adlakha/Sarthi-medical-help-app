@@ -2,6 +2,9 @@ import {
   LOGIN_USER,
   SIGNUP_USER,
   LOGOUT_USER,
+  DELETE_DOCTOR,
+  DELETE_NEEDY,
+  DELETE_VOLUNTEER,
 } from '../actions/ActionConstants';
 
 const initState = {
@@ -20,6 +23,24 @@ const reducer = (state = initState, action) => {
         isAuthenticated: true,
       };
     case LOGOUT_USER:
+      return {
+        ...state,
+        currUser: '',
+        isAuthenticated: false,
+      };
+    case DELETE_DOCTOR:
+      return {
+        ...state,
+        currUser: '',
+        isAuthenticated: false,
+      };
+    case DELETE_NEEDY:
+      return {
+        ...state,
+        currUser: '',
+        isAuthenticated: false,
+      };
+    case DELETE_VOLUNTEER:
       return {
         ...state,
         currUser: '',

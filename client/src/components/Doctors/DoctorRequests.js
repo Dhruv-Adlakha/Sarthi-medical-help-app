@@ -8,7 +8,9 @@ function DoctorRequests(props) {
   console.log(props.requests);
   useEffect(() => {
     setDrequests(() => {
-      return props.requests.filter((e) => e.applicationStatus === 1);
+      return props.requests.filter(
+        (e) => e.applicationStatus === 1 || e.applicationStatus === 2
+      );
     });
   }, []);
   return (
@@ -20,6 +22,7 @@ function DoctorRequests(props) {
           <DoctorRequest
             problem={e.problem}
             description={e.description}
+            applicationStatus={e.applicationStatus}
             patient={props.needy.find((e2) => {
               return e.patient === e2._id;
             })}

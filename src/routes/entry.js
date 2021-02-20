@@ -55,7 +55,9 @@ router.post('/auth/login', async (req, res) => {
     } else {
       user = await Admin.findOne({ email: req.body.email });
     }
-
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
     const passwordEntered = req.body.password;
     const match = await bcrypt.compare(
       passwordEntered.toString(),
@@ -65,9 +67,7 @@ router.post('/auth/login', async (req, res) => {
       return res.status(401).send('Invalid credentials');
     }
     const token = await user.generateAuthToken();
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
+
     res.send({ user, token });
   } catch (err) {
     res.status(500).send(err);
