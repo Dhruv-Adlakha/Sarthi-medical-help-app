@@ -2,6 +2,7 @@ import {
   NEEDY_HELP_REQUEST,
   GET_REQUESTS,
   DOCTOR_ACCEPT_REQUEST,
+  UPDATE_REQUEST,
 } from '../actions/ActionConstants';
 
 const initState = {
@@ -22,6 +23,7 @@ const reducer = (state = initState, action) => {
         requests: action.payload,
       };
     case DOCTOR_ACCEPT_REQUEST:
+    case UPDATE_REQUEST:
       return {
         ...state,
         requests: state.requests.map((e) => {

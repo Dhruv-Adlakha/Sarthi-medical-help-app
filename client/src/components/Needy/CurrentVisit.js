@@ -10,7 +10,7 @@ function CurrentVisit(props) {
       return e.patient == props.currUser._id && e.applicationStatus > 0;
     });
     console.log(req);
-    setAppStatus(() => req[0].applicationStatus);
+    if (req.length) setAppStatus(() => req[0].applicationStatus);
   });
   return (
     <div>

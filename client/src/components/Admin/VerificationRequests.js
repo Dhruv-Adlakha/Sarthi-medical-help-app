@@ -20,7 +20,7 @@ function VerificationRequests(props) {
     setVrequests(() => {
       return arr;
     });
-  }, []); //here try something different to make the page reload
+  }, [vrequests]); //here try something different to make the page reload
 
   return (
     <div>

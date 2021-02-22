@@ -3,6 +3,7 @@ const adminRouter = require('./routes/admin');
 const needyRouter = require('./routes/needy');
 const doctorRouter = require('./routes/doctor');
 const volunteerRouter = require('./routes/volunteer');
+const utilRouter = require('./routes/utils');
 require('./db/mongoose');
 
 const express = require('express');
@@ -13,6 +14,7 @@ app.use(adminRouter);
 app.use(needyRouter);
 app.use(doctorRouter);
 app.use(volunteerRouter);
+app.use(utilRouter);
 
 const port = process.env.PORT || 5000;
 

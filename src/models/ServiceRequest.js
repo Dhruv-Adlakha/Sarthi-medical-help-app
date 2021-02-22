@@ -27,9 +27,6 @@ const requestSchema = new mongoose.Schema({
   ],
   volunteers: [
     {
-      serviceType: {
-        type: String,
-      },
       volunteer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Volunteer',

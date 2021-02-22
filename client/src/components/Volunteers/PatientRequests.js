@@ -14,15 +14,19 @@ function PatientRequests(props) {
       const needyPerson = props.needy.find((f) => {
         return e.patient === f._id;
       });
-      return {
-        name: needyPerson.name,
-        address: needyPerson.address,
-      };
+      console.log(needyPerson);
+      if (needyPerson) {
+        return {
+          name: needyPerson.name,
+          address: needyPerson.address,
+          _id: e._id,
+        };
+      }
     });
     console.log(newArr);
     await setServiceRequests(() => newArr);
     console.log(serviceRequests);
-  });
+  }, [props.requests]);
   return (
     <div>
       <Navbar />
@@ -32,12 +36,14 @@ function PatientRequests(props) {
           <div>
             <h3>Service request</h3>
             <div className='volunteerRequestsElements'>
-              {serviceRequests.length &&
+              {serviceRequests &&
+                serviceRequests.length &&
                 serviceRequests.map((request, index) => {
                   return (
                     <PatientRequestElement
-                      name={request.name}
-                      address={request.address}
+                      name={request && request.name}
+                      address={request && request.address}
+                      _id={request && request._id}
                     />
                   );
                 })}
