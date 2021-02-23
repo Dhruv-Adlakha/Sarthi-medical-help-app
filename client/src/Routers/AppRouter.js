@@ -43,7 +43,7 @@ const AppRouter = () => (
         component={DoctorsUpdateProfile}
       />
       <Route
-        path='/doctors/requests/prescribe'
+        path='/doctors/requests/prescribe/:id'
         component={PrescribeMedicines}
       />
 

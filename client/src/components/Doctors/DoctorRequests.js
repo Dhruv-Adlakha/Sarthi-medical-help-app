@@ -9,7 +9,9 @@ function DoctorRequests(props) {
   useEffect(() => {
     setDrequests(() => {
       return props.requests.filter(
-        (e) => e.applicationStatus === 1 || e.applicationStatus === 2
+        (e) =>
+          e.applicationStatus === 1 ||
+          (e.applicationStatus === 2 && e.doctor === props.currUser._id)
       );
     });
   }, []);
@@ -38,6 +40,7 @@ const mapStateToProps = (state) => {
   return {
     requests: state.needyReducer.requests,
     needy: state.adminReducer.needy,
+    currUser: state.authReducer.currUser,
   };
 };
 

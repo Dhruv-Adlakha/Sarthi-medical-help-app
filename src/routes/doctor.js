@@ -39,7 +39,9 @@ router.post('/doctor/prescribeMedicines/:id', auth, async (req, res) => {
     if (!request) {
       return res.status(404).send('Request not found');
     }
-    request.prescription.push({ medicine: req.body.medicine });
+    if (req.body.medicine === 'done') {
+      request.applicationStatus = 4;
+    } else request.prescription.push({ medicine: req.body.medicine });
     await request.save();
     res.send(request);
   } catch (error) {

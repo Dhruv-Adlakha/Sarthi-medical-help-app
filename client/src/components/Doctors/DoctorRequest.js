@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { doctorAcceptRequest } from '../../redux/actions/Doctor';
 
@@ -7,6 +7,7 @@ function DoctorRequest(props) {
   const [request, setRequest] = useState('');
   const [updated, setUpdated] = useState(false);
   useEffect(() => {
+    console.log(props.id);
     setRequest(props.requests.find((e) => e._id === props.id));
   }, []);
   const onAcceptHandler = () => {
@@ -28,9 +29,9 @@ function DoctorRequest(props) {
         >
           {props.applicationStatus === 2 ? 'Accepted' : 'Accept'}
         </button>
-        <NavLink to='/doctors/requests/prescribe' className='btn'>
+        <Link to={`/doctors/requests/prescribe/${props.id}`} className='btn'>
           Prescribe medicines
-        </NavLink>
+        </Link>
       </div>
     </div>
   );
