@@ -4,13 +4,39 @@ import { connect } from 'react-redux';
 
 function CurrentVisit(props) {
   const [appStatus, setAppStatus] = useState(0);
+  const [doctor, setDoctor] = useState('Not assigned');
+  const [volunteer1, setVolunteer1] = useState('Not assigned');
+  const [volunteer2, setVolunteer2] = useState('Not assigned');
+
   useEffect(async () => {
-    console.log(props.requests, props.currUser);
     const req = await props.requests.filter((e) => {
-      return e.patient == props.currUser._id && e.applicationStatus > 0;
+      return (
+        e.patient == props.currUser._id &&
+        (e.applicationStatus > 0) & (e.applicationStatus < 6)
+      );
     });
-    console.log(req);
-    if (req.length) setAppStatus(() => req[0].applicationStatus);
+
+    if (req.length) {
+      setAppStatus(() => req[0].applicationStatus);
+      if (req[0].doctor) {
+        const curr = await props.doctors.filter((e) => {
+          return e._id === req[0].doctor;
+        });
+        setDoctor(curr[0].name);
+      }
+      if (req[0].volunteers && req[0].volunteers[0]) {
+        const curr = await props.volunteers.filter((e) => {
+          return e._id === req[0].volunteers[0]._id;
+        });
+        setVolunteer1(curr[0].name);
+      }
+      if (req[0].volunteers && req[0].volunteers[1]) {
+        const curr = await props.volunteers.filter((e) => {
+          return e._id === req[0].volunteers[1]._id;
+        });
+        setVolunteer2(curr[0].name);
+      }
+    }
   });
   return (
     <div>
@@ -19,7 +45,7 @@ function CurrentVisit(props) {
       <div className='currentVisit'>
         <div className='volunteer'>
           <h2>Volunteering Doctor</h2>
-          <p>Dr. Manish kriplani</p>
+          <p>{doctor}</p>
         </div>
         <div className='status'>
           <h2>Current visit status</h2>
@@ -81,11 +107,11 @@ function CurrentVisit(props) {
           <h2>Volunteers</h2>
           <div>
             <h3>Doctor visit</h3>
-            <p>Ravi sharma</p>
+            <p>{volunteer1}</p>
           </div>
           <div>
             <h3>Medicine delivery</h3>
-            <p>Ibrahim haq</p>
+            <p>{volunteer2}</p>
           </div>
         </div>
       </div>
@@ -97,6 +123,8 @@ const mapStateToProps = (state) => {
   return {
     requests: state.needyReducer.requests,
     currUser: state.authReducer.currUser,
+    doctors: state.adminReducer.doctors,
+    volunteers: state.adminReducer.volunteers,
   };
 };
 

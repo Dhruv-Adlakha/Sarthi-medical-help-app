@@ -51,23 +51,24 @@ export const deleteVolunteer = (volunteerUser) => {
   };
 };
 
-export const acceptPatientDoctorVisit = (id) => {
+export const acceptPatientDoctorVisit = (req) => {
   return async (dispatch) => {
     const token = localStorage.getItem('token');
+    console.log(req);
     try {
       const request = await axios({
         method: 'patch',
-        url: `/updateRequest/${id}`,
+        url: `/updateRequest/${req.id}`,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
           Authorization: `Bearer ${token}`,
         },
         data: {
-          applicationStatus: 3,
+          applicationStatus: req.applicationStatus + 1,
         },
       });
-      //console.log(request);
+      console.log(request);
       dispatch({
         type: 'UPDATE_REQUEST',
         payload: request.data,

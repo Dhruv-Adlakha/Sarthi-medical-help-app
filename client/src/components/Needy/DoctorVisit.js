@@ -8,7 +8,11 @@ function DoctorVisit(props) {
   const [inProgress, setInProgress] = useState(false);
   useEffect(() => {
     const arr = props.requests.filter((e) => {
-      return e.patient == props.currUser._id && e.applicationStatus >= 1;
+      return (
+        e.patient == props.currUser._id &&
+        e.applicationStatus >= 1 &&
+        e.applicationStatus < 6
+      );
     });
     if (arr.length !== 0) {
       setInProgress(true);

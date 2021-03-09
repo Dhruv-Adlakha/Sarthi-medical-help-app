@@ -4,7 +4,13 @@ import { acceptPatientDoctorVisit } from '../../redux/actions/Volunteer';
 
 function PatientRequestElement(props) {
   const onClickHandler = () => {
-    props.dispatch(acceptPatientDoctorVisit(props._id));
+    //if (props.applicationStatus != 4)
+    props.dispatch(
+      acceptPatientDoctorVisit({
+        id: props._id,
+        applicationStatus: props.applicationStatus,
+      })
+    );
   };
   return (
     <div className='patientRequestElement'>
@@ -20,9 +26,40 @@ function PatientRequestElement(props) {
         </p>
         <p>{props.address}</p>
       </div>
-
+      <div className='pane'>
+        <p>
+          <span>Doctor</span>
+        </p>
+        <p>{props.doctor}</p>
+      </div>
+      <div className='pane'>
+        <p>
+          <span>Hospital</span>
+        </p>
+        <p>{props.hospital}</p>
+      </div>
+      {props.applicationStatus != 4 && (
+        <div className='pane'>
+          <p>
+            <span>Service</span>
+          </p>
+          <p>
+            {props.applicationStatus == 2
+              ? 'Doctor visit'
+              : 'Medicine delivery'}
+          </p>
+        </div>
+      )}
+      {props.applicationStatus == 4 && (
+        <div className='pane'>
+          <p>
+            <span>Amount</span>
+          </p>
+          <p>{props.amount}</p>
+        </div>
+      )}
       <button className='btn' onClick={onClickHandler}>
-        Accept
+        Help
       </button>
     </div>
   );

@@ -15,6 +15,10 @@ router.patch('/updateRequest/:id', auth, async (req, res) => {
       request.applicationStatus = 3;
       request.volunteers[0] = req.user;
     }
+    if (req.body.applicationStatus === 6) {
+      request.applicationStatus = 6;
+      request.volunteers[1] = req.user;
+    }
     console.log(request);
     await request.save();
     res.send(request);
