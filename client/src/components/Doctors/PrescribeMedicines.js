@@ -6,8 +6,10 @@ import { prescribeMedicines } from '../../redux/actions/Doctor';
 
 function PrescribeMedicines(props) {
   const [currRequest, setCurrRequest] = useState({});
-  const [currMedicine, setcurrMedicine] = useState({
-    medicine: '',
+  const [allMedicines, setAllMedicines] = useState([]);
+  const [currMedicine, setcurrMedicine] = useState('');
+  const [currMedicines, setCurrMedicines] = useState({
+    medicines: [],
     id: props.match.params.id,
   });
   useEffect(() => {
@@ -26,11 +28,20 @@ function PrescribeMedicines(props) {
       };
     });
   };
+  const onAddHandler = (e) => {
+    e.preventDefault();
+    console.log(allMedicines);
+    setAllMedicines(() => [...allMedicines, currMedicine]);
+    console.log(allMedicines);
+    setcurrMedicine('');
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
-    console.log(currMedicine);
-    props.dispatch(prescribeMedicines(currMedicine));
+    setCurrMedicines(() => ({
+      ...currMedicines,
+      medicines: allMedicines,
+    }));
+    props.dispatch(prescribeMedicines(currMedicines));
   };
   return (
     <div>
@@ -43,18 +54,20 @@ function PrescribeMedicines(props) {
           </div>
         </div>
         <h2>Prescription</h2>
-        {currRequest &&
-          currRequest.prescription &&
-          currRequest.prescription.map((e) => (
-            <div className='addedMedicine'>
+        {allMedicines &&
+          allMedicines.map((e, index) => (
+            <div className='addedMedicine' key={index}>
               <p>{e.medicine}</p>
             </div>
           ))}
 
-        <form className='addMedicine' onSubmit={onSubmitHandler}>
+        <form className='addMedicine' onSubmit={onAddHandler}>
           <input type='text' name='medicine' onChange={onChangeHandler} />
           <button>Add</button>
         </form>
+        <button className='btn' onClick={onSubmitHandler}>
+          Submit
+        </button>
         {currRequest && currRequest.applicationStatus === 4 && (
           <Redirect to='/doctors/requests' />
         )}

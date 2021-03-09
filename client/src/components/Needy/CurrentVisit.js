@@ -36,35 +36,35 @@ function CurrentVisit(props) {
                 appStatus >= 2 ? 'statusBarsElement done' : 'statusBarsElement'
               }
             >
-              Volunteer assigned
+              Doctor accepted request
             </div>
             <div
               className={
                 appStatus >= 3 ? 'statusBarsElement done' : 'statusBarsElement'
               }
             >
-              Volunteer at home
+              Volunteer took to doctor
             </div>
             <div
               className={
                 appStatus >= 4 ? 'statusBarsElement done' : 'statusBarsElement'
               }
             >
-              Doctor visit done
+              Doctor prescribed medicines
             </div>
             <div
               className={
                 appStatus >= 5 ? 'statusBarsElement done' : 'statusBarsElement'
               }
             >
-              Medicines ready to deliver
+              Medicines bill paid
             </div>
             <div
               className={
                 appStatus >= 6 ? 'statusBarsElement done' : 'statusBarsElement'
               }
             >
-              Medicines delivered
+              Volunteer took and delivered
             </div>
           </div>
 

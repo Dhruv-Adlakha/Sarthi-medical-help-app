@@ -53,20 +53,20 @@ export const deleteDoctor = (doctorUser) => {
   };
 };
 
-export const prescribeMedicines = (medicine) => {
+export const prescribeMedicines = (medicines) => {
   return async (dispatch) => {
     const token = localStorage.getItem('token');
-    console.log(medicine.id);
+    console.log(medicines.id);
     try {
       const req = await axios({
         method: 'post',
-        url: `/doctor/prescribeMedicines/${medicine.id}`,
+        url: `/doctor/prescribeMedicines/${medicines.id}`,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        data: medicine,
+        data: medicines,
       });
       console.log(req);
       dispatch({

@@ -8,7 +8,7 @@ function PatientRequests(props) {
   useEffect(async () => {
     console.log(props.requests);
     const req = props.requests.filter((e) => {
-      return e.applicationStatus === 2;
+      return e.applicationStatus === 1;
     });
     const newArr = req.map((e) => {
       const needyPerson = props.needy.find((f) => {

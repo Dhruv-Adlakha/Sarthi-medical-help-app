@@ -22,16 +22,16 @@ function DoctorRequest(props) {
       <h5>Patient: {props.patient && props.patient.name}</h5>
       <p>{props.description}</p>
       <div className='buttonSection'>
-        <button
-          className='btn acceptButton'
-          onClick={onAcceptHandler}
-          disabled={props.applicationStatus === 2}
-        >
-          {props.applicationStatus === 2 ? 'Accepted' : 'Accept'}
-        </button>
-        <Link to={`/doctors/requests/prescribe/${props.id}`} className='btn'>
-          Prescribe medicines
-        </Link>
+        {props.applicationStatus === 1 && (
+          <button className='btn acceptButton' onClick={onAcceptHandler}>
+            Accept
+          </button>
+        )}
+        {props.applicationStatus === 3 && (
+          <Link to={`/doctors/requests/prescribe/${props.id}`} className='btn'>
+            Prescribe medicines
+          </Link>
+        )}
       </div>
     </div>
   );

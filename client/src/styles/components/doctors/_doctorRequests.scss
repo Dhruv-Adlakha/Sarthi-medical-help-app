@@ -3,4 +3,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-right: $s-size;
+}
+
+.doctorRequestsSpliter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.doctorRequestsSpliter h2 {
+  text-align: center;
 }
