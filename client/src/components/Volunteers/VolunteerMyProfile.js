@@ -71,6 +71,7 @@ function VolunteerMyProfile(props) {
 const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
+    requests: state.needyReducer.requests,
   };
 };
 
