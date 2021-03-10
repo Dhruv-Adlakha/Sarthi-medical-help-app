@@ -1,7 +1,11 @@
 import axios from 'axios';
+import { LOADING1 } from './ActionConstants';
 
 export const loginUser = (user) => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING1,
+    });
     try {
       console.log(user);
       const us = await axios({
@@ -26,6 +30,9 @@ export const loginUser = (user) => {
 
 export const signUser = (user) => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING1,
+    });
     try {
       const us = await axios({
         method: 'post',
@@ -50,6 +57,9 @@ export const signUser = (user) => {
 
 export const logoutUser = (user) => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING1,
+    });
     try {
       const token = localStorage.getItem('token');
       const us = await axios({

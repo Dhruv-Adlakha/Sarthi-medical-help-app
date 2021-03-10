@@ -66,6 +66,7 @@ const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
     isAuthenticated: state.authReducer.isAuthenticated,
+    loading: state.authReducer.loading,
   };
 };
 

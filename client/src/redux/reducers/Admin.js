@@ -12,6 +12,7 @@ import {
   DELETE_DOCTOR,
   DELETE_NEEDY,
   DELETE_VOLUNTEER,
+  LOADING,
 } from '../actions/ActionConstants';
 
 const initState = {
@@ -19,6 +20,7 @@ const initState = {
   volunteers: [],
   needy: [],
   trust: [],
+  loading: false,
 };
 
 const reducer = (state = initState, action) => {
@@ -28,21 +30,25 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         doctors: action.payload,
+        loading: false,
       };
     case GET_VOLUNTEERS:
       return {
         ...state,
         volunteers: action.payload,
+        loading: false,
       };
     case GET_NEEDY:
       return {
         ...state,
         needy: action.payload,
+        loading: false,
       };
     case GET_TRUST:
       return {
         ...state,
         trust: action.payload,
+        loading: false,
       };
     case SUBMIT_VERIFCATION_DOCTOR:
       return {
@@ -55,6 +61,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case ACCEPT_VERIFICATION_DOCTOR:
       return {
@@ -67,6 +74,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case SUBMIT_VERIFCATION_VOLUNTEER:
       return {
@@ -79,6 +87,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case ACCEPT_VERIFICATION_VOLUNTEER:
       return {
@@ -91,6 +100,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case SUBMIT_VERIFCATION_NEEDY:
       return {
@@ -103,6 +113,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case ACCEPT_VERIFICATION_NEEDY:
       return {
@@ -115,6 +126,7 @@ const reducer = (state = initState, action) => {
           }
         }),
         currUser: action.payload,
+        loading: false,
       };
     case DELETE_DOCTOR:
       return {
@@ -122,6 +134,7 @@ const reducer = (state = initState, action) => {
         doctors: state.doctors.filter((e) => e._id !== action.payload._id),
         currUser: '',
         isAuthenticated: false,
+        loading: false,
       };
     case DELETE_NEEDY:
       return {
@@ -129,6 +142,7 @@ const reducer = (state = initState, action) => {
         needy: state.needy.filter((e) => e._id !== action.payload._id),
         currUser: '',
         isAuthenticated: false,
+        loading: false,
       };
     case DELETE_VOLUNTEER:
       return {
@@ -138,6 +152,12 @@ const reducer = (state = initState, action) => {
         ),
         currUser: '',
         isAuthenticated: false,
+        loading: false,
+      };
+    case LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return {

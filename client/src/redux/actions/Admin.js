@@ -5,10 +5,16 @@ import {
   GET_NEEDY,
   GET_REQUESTS,
   GET_TRUST,
+  LOADING,
+  LOADING1,
+  LOADING2,
 } from './ActionConstants';
 
 export const getDoctors = () => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING,
+    });
     try {
       const doctors = await axios.get('/admin/doctorProfiles');
       dispatch({
@@ -24,6 +30,9 @@ export const getDoctors = () => {
 
 export const getVolunteers = () => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING,
+    });
     try {
       const volunteers = await axios.get('/admin/volunteerProfiles');
       dispatch({
@@ -38,6 +47,9 @@ export const getVolunteers = () => {
 
 export const getNeedy = () => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING,
+    });
     try {
       const needy = await axios.get('/admin/needyProfiles');
       dispatch({
@@ -53,6 +65,9 @@ export const getNeedy = () => {
 
 export const getRequests = () => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING2,
+    });
     try {
       const requests = await axios.get('/admin/requests');
       console.log(requests.data);
@@ -70,6 +85,9 @@ export const getRequests = () => {
 
 export const getTrust = () => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING,
+    });
     try {
       const token = localStorage.getItem('token');
       const requests = await axios({

@@ -3,10 +3,12 @@ import {
   GET_REQUESTS,
   DOCTOR_ACCEPT_REQUEST,
   UPDATE_REQUEST,
+  LOADING2,
 } from '../actions/ActionConstants';
 
 const initState = {
   requests: [],
+  loading2: false,
 };
 
 const reducer = (state = initState, action) => {
@@ -16,11 +18,13 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         requests: [...state.requests, action.payload],
+        loading2: false,
       };
     case GET_REQUESTS:
       return {
         ...state,
         requests: action.payload,
+        loading2: false,
       };
     case DOCTOR_ACCEPT_REQUEST:
     case UPDATE_REQUEST:
@@ -33,6 +37,13 @@ const reducer = (state = initState, action) => {
             return e;
           }
         }),
+        loading2: false,
+      };
+
+    case LOADING2:
+      return {
+        ...state,
+        loading2: true,
       };
     default:
       return {

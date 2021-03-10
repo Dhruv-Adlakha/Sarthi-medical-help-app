@@ -19,7 +19,7 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       role: req.body.role,
       password: req.body.password,
-      profileVerified: 'In progress',
+      profileVerified: 'Not verified',
     };
     if (req.body.role === 'doctor') {
       user = new Doctor(content);
@@ -36,6 +36,7 @@ router.post('/signup', async (req, res) => {
     user.password = hashedPassword;
 
     const token = await user.generateAuthToken();
+    await user.save();
     res.send({ user, token });
   } catch (err) {
     res.status(500).send(err);

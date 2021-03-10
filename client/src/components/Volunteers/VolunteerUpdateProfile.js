@@ -83,7 +83,14 @@ function VolunteerUpdateProfile(props) {
                 <input className='fileText' type='file' name='aadhar' />
               </div>
             </div>
-            <button className='btn formLink'>Submit</button>
+            <button
+              className='btn formLink'
+              disabled={props.currUser.profileVerified === 'In process'}
+            >
+              {props.currUser.profileVerified === 'In process'
+                ? 'In process Check later'
+                : 'Submit'}
+            </button>
           </form>
         </div>
       </div>

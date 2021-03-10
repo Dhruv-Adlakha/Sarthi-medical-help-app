@@ -20,3 +20,6 @@ export const DELETE_VOLUNTEER = 'DELETE_VOLUNTEER';
 export const DELETE_NEEDY = 'DELETE_NEEDY';
 export const UPDATE_REQUEST = 'UPDATE_REQUEST';
 export const PRESCRIBE_MEDICINES = 'PRESCRIBE_MEDICNES';
+export const LOADING = 'LOADING';
+export const LOADING1 = 'LOADING1';
+export const LOADING2 = 'LOADING2';
