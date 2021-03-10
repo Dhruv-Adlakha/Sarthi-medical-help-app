@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import ServiceHistoryElement from '../ExtraPages/ServiceHistoryElement';
 import { connect } from 'react-redux';
 
 function DoctorMyProfile(props) {
+  const [servedRequests, setServedRequests] = useState([]);
+  useEffect(() => {
+    const arr = props.requests.filter((e) => {
+      return e.doctor === props.currUser._id;
+    });
+    const brr = arr.map((e) => ({
+      ...e,
+      name: props.needy.find((f) => {
+        return f._id === e.patient;
+      }),
+    }));
+    setServedRequests(() => brr);
+    console.log(brr);
+    console.log(servedRequests);
+  }, []);
   return (
     <div>
       <Navbar />
@@ -58,10 +73,14 @@ function DoctorMyProfile(props) {
           <div className='serviceHistory'>
             <h2>Service history</h2>
             <div className='content'>
-              <ServiceHistoryElement />
-              <ServiceHistoryElement />
-              <ServiceHistoryElement />
-              <ServiceHistoryElement />
+              {servedRequests.map((e, index) => (
+                <ServiceHistoryElement
+                  key={index}
+                  index={index}
+                  name={e.name.name}
+                  problem={e.problem}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -73,6 +92,8 @@ function DoctorMyProfile(props) {
 const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
+    requests: state.needyReducer.requests,
+    needy: state.adminReducer.needy,
   };
 };
 

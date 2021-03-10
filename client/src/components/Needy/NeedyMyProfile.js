@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import { connect } from 'react-redux';
@@ -73,6 +73,7 @@ function NeedyMyProfile(props) {
 const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
+    requests: state.authReducer.requests,
   };
 };
 

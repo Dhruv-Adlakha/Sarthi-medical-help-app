@@ -1,12 +1,11 @@
 import React from 'react';
 
-function ServiceHistoryElement() {
+function ServiceHistoryElement(props) {
   return (
     <div className='serviceHistoryElement'>
-      <p>1</p>
-      <p>Mr. Ravikant mishra</p>
-      <p>Throat Infection</p>
-      <p>24/6/20</p>
+      <p>{props.index}</p>
+      <p>{props.name}</p>
+      <p>{props.problem}</p>
     </div>
   );
 }
