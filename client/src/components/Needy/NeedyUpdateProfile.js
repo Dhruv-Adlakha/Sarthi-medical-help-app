@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Layout/Navbar';
 import { submitVerification } from '../../redux/actions/Utils';
+import Spinner from '../Spinner';
 
 function NeedyUpdateProfile(props) {
   const [newProfile, setNewProfile] = useState({
@@ -27,95 +28,101 @@ function NeedyUpdateProfile(props) {
   };
   return (
     <div>
-      <Navbar />
-      <div className='updateProfile'>
-        <div className='full-form'>
-          <h2>Update Profile</h2>
-          <form action='' onSubmit={onSubmitHandler}>
-            <div className='formArea'>
-              <div className='formElement'>
-                <label>
-                  <span>Name</span>
-                </label>
-                <input
-                  type='text'
-                  name='name'
-                  defaultValue={newProfile.name}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Yearly income</span>
-                </label>
-                <input
-                  type='text'
-                  name='annualIncome'
-                  defaultValue={newProfile.annualIncome}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Address</span>
-                </label>
-                <input
-                  type='text'
-                  name='address'
-                  defaultValue={newProfile.address}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Age</span>
-                </label>
-                <input
-                  type='text'
-                  name='age'
-                  defaultValue={newProfile.age}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Gender</span>
-                </label>
-                <input
-                  type='text'
-                  name='gender'
-                  defaultValue={newProfile.gender}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Aadhar</span>
-                </label>
-                <input className='fileText' type='file' name='aadhar' />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Education certificate</span>
-                </label>
-                <input
-                  className='fileText'
-                  type='file'
-                  name='education-certificate'
-                />
-              </div>
+      {props.loading ? (
+        <Spinner />
+      ) : (
+        <div>
+          <Navbar />
+          <div className='updateProfile'>
+            <div className='full-form'>
+              <h2>Update Profile</h2>
+              <form action='' onSubmit={onSubmitHandler}>
+                <div className='formArea'>
+                  <div className='formElement'>
+                    <label>
+                      <span>Name</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='name'
+                      defaultValue={newProfile.name}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Yearly income</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='annualIncome'
+                      defaultValue={newProfile.annualIncome}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Address</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='address'
+                      defaultValue={newProfile.address}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Age</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='age'
+                      defaultValue={newProfile.age}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Gender</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='gender'
+                      defaultValue={newProfile.gender}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Aadhar</span>
+                    </label>
+                    <input className='fileText' type='file' name='aadhar' />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Education certificate</span>
+                    </label>
+                    <input
+                      className='fileText'
+                      type='file'
+                      name='education-certificate'
+                    />
+                  </div>
+                </div>
+                <button
+                  className='btn formLink'
+                  disabled={props.currUser.profileVerified === 'In process'}
+                >
+                  {props.currUser.profileVerified === 'In process'
+                    ? 'In process Check later'
+                    : 'Submit'}
+                </button>
+              </form>
             </div>
-            <button
-              className='btn formLink'
-              disabled={props.currUser.profileVerified === 'In process'}
-            >
-              {props.currUser.profileVerified === 'In process'
-                ? 'In process Check later'
-                : 'Submit'}
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -123,6 +130,7 @@ function NeedyUpdateProfile(props) {
 const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
+    loading: state.adminReducer.loading,
   };
 };
 

@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { DELETE_NEEDY } from './ActionConstants';
+import { DELETE_NEEDY, LOADING2 } from './ActionConstants';
 
 export const needyHelpRequest = (problem) => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING2,
+    });
     try {
       const token = localStorage.getItem('token');
       const helpRequest = await axios({

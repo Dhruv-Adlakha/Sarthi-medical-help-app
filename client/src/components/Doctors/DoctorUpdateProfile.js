@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Layout/Navbar';
 import { submitVerification } from '../../redux/actions/Utils';
+import Spinner from '../Spinner';
 
 function DoctorUpdateProfile(props) {
   const [newProfile, setNewProfile] = useState({
@@ -26,95 +27,101 @@ function DoctorUpdateProfile(props) {
   };
   return (
     <div>
-      <Navbar />
-      <div className='updateProfile'>
-        <div className='full-form'>
-          <h2>Upate Profile</h2>
-          <form action='' onSubmit={onSubmitHandler}>
-            <div className='formArea'>
-              <div className='formElement'>
-                <label>
-                  <span>Name</span>
-                </label>
-                <input
-                  type='text'
-                  name='name'
-                  defaultValue={newProfile.name}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Qualification</span>
-                </label>
-                <input
-                  type='text'
-                  name='qualification'
-                  defaultValue={newProfile.qualification}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Speciality</span>
-                </label>
-                <input
-                  type='text'
-                  name='speciality'
-                  defaultValue={newProfile.speciality}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Hospital</span>
-                </label>
-                <input
-                  type='text'
-                  name='hospital'
-                  defaultValue={newProfile.hospital}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Education</span>
-                </label>
-                <input
-                  type='text'
-                  name='education'
-                  defaultValue={newProfile.education}
-                  onChange={onChangeHandler}
-                />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Aadhar</span>
-                </label>
-                <input className='fileText' type='file' name='aadhar' />
-              </div>
-              <div className='formElement'>
-                <label>
-                  <span>Education certificate</span>
-                </label>
-                <input
-                  className='fileText'
-                  type='file'
-                  name='education-certificate'
-                />
-              </div>
+      {props.loading ? (
+        <Spinner />
+      ) : (
+        <div>
+          <Navbar />
+          <div className='updateProfile'>
+            <div className='full-form'>
+              <h2>Upate Profile</h2>
+              <form action='' onSubmit={onSubmitHandler}>
+                <div className='formArea'>
+                  <div className='formElement'>
+                    <label>
+                      <span>Name</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='name'
+                      defaultValue={newProfile.name}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Qualification</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='qualification'
+                      defaultValue={newProfile.qualification}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Speciality</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='speciality'
+                      defaultValue={newProfile.speciality}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Hospital</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='hospital'
+                      defaultValue={newProfile.hospital}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Education</span>
+                    </label>
+                    <input
+                      type='text'
+                      name='education'
+                      defaultValue={newProfile.education}
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Aadhar</span>
+                    </label>
+                    <input className='fileText' type='file' name='aadhar' />
+                  </div>
+                  <div className='formElement'>
+                    <label>
+                      <span>Education certificate</span>
+                    </label>
+                    <input
+                      className='fileText'
+                      type='file'
+                      name='education-certificate'
+                    />
+                  </div>
+                </div>
+                <button
+                  className='btn formLink'
+                  disabled={props.currUser.profileVerified === 'In process'}
+                >
+                  {props.currUser.profileVerified === 'In process'
+                    ? 'In process Check later'
+                    : 'Submit'}
+                </button>
+              </form>
             </div>
-            <button
-              className='btn formLink'
-              disabled={props.currUser.profileVerified === 'In process'}
-            >
-              {props.currUser.profileVerified === 'In process'
-                ? 'In process Check later'
-                : 'Submit'}
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -122,6 +129,7 @@ function DoctorUpdateProfile(props) {
 const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
+    loading: state.adminReducer.loading,
   };
 };
 

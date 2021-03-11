@@ -1,7 +1,11 @@
 import axios from 'axios';
+import { LOADING } from '../actions/ActionConstants';
 
 export const submitVerification = (user) => {
   return async (dispatch) => {
+    dispatch({
+      type: LOADING,
+    });
     try {
       user.profileVerified = 'In process';
       console.log(user);

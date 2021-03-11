@@ -33,8 +33,8 @@ function Signup(props) {
     await props.dispatch(getVolunteers());
     await props.dispatch(getDoctors());
     await props.dispatch(getNeedy());
-    await props.dispatch(getRequests());
     await props.dispatch(getTrust());
+    await props.dispatch(getRequests());
   };
   return (
     <div>

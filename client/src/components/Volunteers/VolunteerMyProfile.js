@@ -96,21 +96,27 @@ function VolunteerMyProfile(props) {
           <h2>Service history</h2>
           <div className='content'>
             {visitServices &&
-              visitServices.map((e, index) => (
-                <ServiceHistoryElement
-                  index={index + 1}
-                  name={e.needy.name}
-                  query={0}
-                />
-              ))}
+              visitServices.map(
+                (e, index) =>
+                  e.needy && (
+                    <ServiceHistoryElement
+                      index={index + 1}
+                      name={e.needy.name}
+                      query={0}
+                    />
+                  )
+              )}
             {deliveryServices &&
-              deliveryServices.map((e, index) => (
-                <ServiceHistoryElement
-                  index={visitServices.length + index + 1}
-                  name={e.needy.name}
-                  query={1}
-                />
-              ))}
+              deliveryServices.map(
+                (e, index) =>
+                  e.needy && (
+                    <ServiceHistoryElement
+                      index={visitServices.length + index + 1}
+                      name={e.needy.name}
+                      query={1}
+                    />
+                  )
+              )}
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ function NeedyMyProfile(props) {
   const [doctorVisits, setDoctorVisits] = useState([]);
   useEffect(() => {
     const arr = props.requests.filter((e) => {
-      return e.patient === props.currUser._id;
+      return e.patient === props.currUser._id && e.applicationStatus >= 3;
     });
     const brr = arr.map((e) => ({
       ...e,
@@ -73,16 +73,17 @@ function NeedyMyProfile(props) {
           <div className='serviceHistory'>
             <h2>Doctor visits</h2>
             <div className='content'>
-              {doctorVisits.map((e, index) => {
-                return (
-                  <ServiceHistoryElement
-                    key={index}
-                    index={index}
-                    name={e.doct.name}
-                    problem={e.problem}
-                  />
-                );
-              })}
+              {doctorVisits &&
+                doctorVisits.map((e, index) => {
+                  return (
+                    <ServiceHistoryElement
+                      key={index}
+                      index={index}
+                      name={e.doct ? e.doct.name : 'Not assigned'}
+                      problem={e.problem}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

@@ -73,14 +73,17 @@ function DoctorMyProfile(props) {
           <div className='serviceHistory'>
             <h2>Service history</h2>
             <div className='content'>
-              {servedRequests.map((e, index) => (
-                <ServiceHistoryElement
-                  key={index}
-                  index={index}
-                  name={e.name.name}
-                  problem={e.problem}
-                />
-              ))}
+              {servedRequests.map(
+                (e, index) =>
+                  e.name && (
+                    <ServiceHistoryElement
+                      key={index}
+                      index={index}
+                      name={e.name && e.name.name}
+                      problem={e.problem}
+                    />
+                  )
+              )}
             </div>
           </div>
         </div>
