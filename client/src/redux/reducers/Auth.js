@@ -9,12 +9,15 @@ import {
   SUBMIT_VERIFCATION_VOLUNTEER,
   SUBMIT_VERIFCATION_DOCTOR,
   SUBMIT_VERIFCATION_NEEDY,
+  ERROR,
+  ERROR_REMOVAL,
 } from '../actions/ActionConstants';
 
 const initState = {
   currUser: '',
   isAuthenticated: false,
   loading1: false,
+  error: false,
 };
 
 const reducer = (state = initState, action) => {
@@ -75,6 +78,17 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         currUser: action.payload,
+      };
+    case ERROR:
+      return {
+        ...state,
+        loading1: false,
+        error: true,
+      };
+    case ERROR_REMOVAL:
+      return {
+        ...state,
+        error: false,
       };
     default:
       return {

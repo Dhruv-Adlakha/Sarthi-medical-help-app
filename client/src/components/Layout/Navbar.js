@@ -9,7 +9,10 @@ const Navbar = (props) => {
   };
   return (
     <div>
-      {(!props || props.isAuthenticated === false) && (
+      {(!props ||
+        props.isAuthenticated === false ||
+        props.loading === true ||
+        props.error === true) && (
         <div className='navbar'>
           <h1>
             <NavLink to='/'>Sarthi</NavLink>
@@ -66,7 +69,8 @@ const mapStateToProps = (state) => {
   return {
     currUser: state.authReducer.currUser,
     isAuthenticated: state.authReducer.isAuthenticated,
-    loading: state.authReducer.loading,
+    loading1: state.authReducer.loading1,
+    error: state.authReducer.error,
   };
 };
 

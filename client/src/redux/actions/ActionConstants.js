@@ -23,3 +23,5 @@ export const PRESCRIBE_MEDICINES = 'PRESCRIBE_MEDICNES';
 export const LOADING = 'LOADING';
 export const LOADING1 = 'LOADING1';
 export const LOADING2 = 'LOADING2';
+export const ERROR = 'ERROR';
+export const ERROR_REMOVAL = 'ERROR_REMOVAL';

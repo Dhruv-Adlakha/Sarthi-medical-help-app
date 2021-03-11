@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOADING1 } from './ActionConstants';
+import { LOADING1, ERROR, ERROR_REMOVAL } from './ActionConstants';
 
 export const loginUser = (user) => {
   return async (dispatch) => {
@@ -22,8 +22,18 @@ export const loginUser = (user) => {
           isAuthenticated: true,
         },
       });
+      return 1;
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: ERROR,
+      });
+      setTimeout(() => {
+        dispatch({
+          type: ERROR_REMOVAL,
+        });
+      }, 1000);
+      return 0;
     }
   };
 };
@@ -48,9 +58,18 @@ export const signUser = (user) => {
           isAuthenticated: true,
         },
       });
-      return us.data.user;
+      return 1;
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: ERROR,
+      });
+      setTimeout(() => {
+        dispatch({
+          type: ERROR_REMOVAL,
+        });
+      }, 2000);
+      return 0;
     }
   };
 };
