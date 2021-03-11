@@ -28,11 +28,11 @@ function NeedyUpdateProfile(props) {
   };
   return (
     <div>
+      <Navbar />
       {props.loading ? (
         <Spinner />
       ) : (
         <div>
-          <Navbar />
           <div className='updateProfile'>
             <div className='full-form'>
               <h2>Update Profile</h2>

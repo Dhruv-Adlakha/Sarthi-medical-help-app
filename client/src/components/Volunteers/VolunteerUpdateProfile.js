@@ -26,14 +26,14 @@ function VolunteerUpdateProfile(props) {
   };
   return (
     <div>
+      <Navbar />
       {props.loading ? (
         <Spinner />
       ) : (
         <div>
-          <Navbar />
           <div className='updateProfile'>
             <div className='full-form'>
-              <h2>Upate Profile</h2>
+              <h2>Update Profile</h2>
               <form action='' onSubmit={onSubmitHandler}>
                 <div className='formArea'>
                   <div className='formElement'>

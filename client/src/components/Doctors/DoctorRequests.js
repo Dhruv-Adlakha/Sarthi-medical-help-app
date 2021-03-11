@@ -14,7 +14,7 @@ function DoctorRequests(props) {
     setacceptedRequests(() => {
       return props.requests.filter((e) => e.applicationStatus === 3);
     });
-  }, []);
+  });
   return (
     <div>
       <Navbar />

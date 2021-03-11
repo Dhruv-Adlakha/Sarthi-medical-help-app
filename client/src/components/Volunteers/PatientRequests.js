@@ -58,47 +58,50 @@ function PatientRequests(props) {
   return (
     <div>
       <Navbar />
-      <div className='volunteerRequests'>
-        <h2>Requests</h2>
-        <div className='section'>
-          <div>
-            <h3>Service request</h3>
-            <div className='volunteerRequestsElements'>
-              {serviceRequests &&
-                serviceRequests.length &&
-                serviceRequests.map((request, index) => {
-                  return (
-                    <PatientRequestElement
-                      name={request && request.name}
-                      address={request && request.address}
-                      doctor={request && request.doctor}
-                      hospital={request && request.hospital}
-                      applicationStatus={request && request.applicationStatus}
-                      _id={request && request._id}
-                    />
-                  );
-                })}
+      <div className='doctorRequestsSpliter'>
+        <div>
+          <h3>Service request</h3>
+          <div className='doctorRequests'>
+            <div>
+              <div>
+                {serviceRequests &&
+                  serviceRequests.length &&
+                  serviceRequests.map((request, index) => {
+                    return (
+                      <PatientRequestElement
+                        name={request && request.name}
+                        address={request && request.address}
+                        doctor={request && request.doctor}
+                        hospital={request && request.hospital}
+                        applicationStatus={request && request.applicationStatus}
+                        _id={request && request._id}
+                      />
+                    );
+                  })}
+              </div>
             </div>
           </div>
-          <div>
-            <h3>Donation request</h3>
-            <div className='volunteerRequestsElements'>
-              {donationRequests &&
-                donationRequests.length &&
-                donationRequests.map((request, index) => {
-                  return (
-                    <PatientRequestElement
-                      name={request && request.name}
-                      address={request && request.address}
-                      doctor={request && request.doctor}
-                      hospital={request && request.hospital}
-                      applicationStatus={request && request.applicationStatus}
-                      amount={request && request.amount}
-                      _id={request && request._id}
-                    />
-                  );
-                })}
-            </div>
+        </div>
+
+        <div>
+          <h3>Donation request</h3>
+
+          <div className='doctorRequests'>
+            {donationRequests &&
+              donationRequests.length &&
+              donationRequests.map((request, index) => {
+                return (
+                  <PatientRequestElement
+                    name={request && request.name}
+                    address={request && request.address}
+                    doctor={request && request.doctor}
+                    hospital={request && request.hospital}
+                    applicationStatus={request && request.applicationStatus}
+                    amount={request && request.amount}
+                    _id={request && request._id}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>
