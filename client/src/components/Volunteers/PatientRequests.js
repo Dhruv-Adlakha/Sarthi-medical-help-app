@@ -53,8 +53,7 @@ function PatientRequests(props) {
       }
     });
     await setDonationRequests(() => newArr2);
-    console.log(serviceRequests, donationRequests);
-  }, []);
+  }, [props]);
   return (
     <div>
       <Navbar />

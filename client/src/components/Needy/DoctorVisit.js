@@ -26,7 +26,6 @@ function DoctorVisit(props) {
   });
   const [updated, setUpdated] = useState(false);
   const onChangeHandler = (e) => {
-    console.log(e.target.name);
     setProblem({
       ...problem,
       [e.target.name]: e.target.value,
@@ -34,7 +33,6 @@ function DoctorVisit(props) {
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(problem);
     await props.dispatch(needyHelpRequest(problem));
     setUpdated(true);
   };

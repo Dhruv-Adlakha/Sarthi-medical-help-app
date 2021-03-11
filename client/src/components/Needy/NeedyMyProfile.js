@@ -16,8 +16,6 @@ function NeedyMyProfile(props) {
         return f._id === e.doctor;
       }),
     }));
-    console.log(arr);
-    console.log(brr);
     setDoctorVisits(() => brr);
   });
   return (

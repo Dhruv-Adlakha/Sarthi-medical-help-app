@@ -21,9 +21,9 @@ export const getDoctors = () => {
         type: GET_DOCTORS,
         payload: doctors.data,
       });
-      return doctors;
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -39,8 +39,9 @@ export const getVolunteers = () => {
         type: GET_VOLUNTEERS,
         payload: volunteers.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -56,9 +57,9 @@ export const getNeedy = () => {
         type: GET_NEEDY,
         payload: needy.data,
       });
-      return;
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -76,9 +77,9 @@ export const getRequests = () => {
         payload: requests.data,
       });
 
-      return;
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -110,9 +111,9 @@ export const getTrust = () => {
         },
       });
 
-      return;
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -133,14 +134,14 @@ export const acceptDoctorVerification = (user) => {
         },
         data: user,
       });
-      console.log(updateRequest);
 
       dispatch({
         type: 'ACCEPT_VERIFICATION_' + user.role.toUpperCase(),
         payload: updateRequest.date,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

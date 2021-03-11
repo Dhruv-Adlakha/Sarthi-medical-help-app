@@ -14,7 +14,6 @@ function TrustContribute(props) {
     _id: props.authReducer.currUser._id,
   });
   const onChangeHandler = (e) => {
-    console.log(e.target.name);
     setTrustItems({
       ...trustItems,
       [e.target.name]: e.target.value,

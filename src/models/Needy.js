@@ -49,9 +49,7 @@ needySchema.methods.generateAuthToken = async function () {
       expiresIn: 200000,
     }
   );
-  console.log(token);
   needy.needyToken = token;
-  console.log(needy);
   await needy.save();
   return token;
 };

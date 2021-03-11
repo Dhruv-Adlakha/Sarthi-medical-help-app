@@ -20,7 +20,6 @@ function Login(props) {
     role: 'needy',
   });
   const onChangeHandler = (e) => {
-    console.log(e.target.name);
     setUser({
       ...user,
       [e.target.name]: e.target.value,
@@ -29,11 +28,9 @@ function Login(props) {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const res = await props.dispatch(loginUser(user));
-    console.log('the result is: ', res);
     if (res === 1) {
       sendfurtherrequests();
     }
-    console.log(props.isAuthenticated);
   };
   const sendfurtherrequests = async (e) => {
     await props.dispatch(getVolunteers());

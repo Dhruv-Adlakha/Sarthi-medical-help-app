@@ -21,7 +21,6 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
-  console.log('login reducer', state, action);
   switch (action.type) {
     case LOGIN_USER:
     case SIGNUP_USER:

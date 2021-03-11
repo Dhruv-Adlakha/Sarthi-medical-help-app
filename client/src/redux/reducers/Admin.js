@@ -24,7 +24,6 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
-  console.log('Admin reducer', state, action);
   switch (action.type) {
     case GET_DOCTORS:
       return {

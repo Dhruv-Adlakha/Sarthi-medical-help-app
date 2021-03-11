@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 function DoctorRequests(props) {
   const [unacceptedRequests, setunacceptedRequests] = useState([]);
   const [acceptedRequests, setacceptedRequests] = useState([]);
-  console.log(props.requests);
+
   useEffect(() => {
     setunacceptedRequests(() => {
       return props.requests.filter((e) => e.applicationStatus === 1);
@@ -14,7 +14,7 @@ function DoctorRequests(props) {
     setacceptedRequests(() => {
       return props.requests.filter((e) => e.applicationStatus === 3);
     });
-  });
+  }, [props]);
   return (
     <div>
       <Navbar />

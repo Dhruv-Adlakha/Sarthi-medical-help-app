@@ -17,9 +17,7 @@ function DoctorMyProfile(props) {
       }),
     }));
     setServedRequests(() => brr);
-    console.log(brr);
-    console.log(servedRequests);
-  }, []);
+  }, [servedRequests]);
   return (
     <div>
       <Navbar />

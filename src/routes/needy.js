@@ -38,7 +38,6 @@ router.patch('/needy/updateProfile/:id', auth, async (req, res) => {
 router.post('/needy/helpRequest', auth, async (req, res) => {
   try {
     const patient = await Needy.findById(req.body.patientId);
-    console.log(patient);
     const helpRequest = new ServiceRequest({
       problem: req.body.problem,
       description: req.body.description,

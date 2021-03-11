@@ -18,13 +18,13 @@ export const needyHelpRequest = (problem) => {
         },
         data: problem,
       });
-      console.log(helpRequest);
       dispatch({
         type: 'NEEDY_HELP_REQUEST',
         payload: helpRequest.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -47,8 +47,9 @@ export const deleteNeedy = (needyUser) => {
         type: DELETE_NEEDY,
         payload: needy.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

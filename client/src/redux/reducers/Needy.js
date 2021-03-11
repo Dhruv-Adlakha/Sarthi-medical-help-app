@@ -12,7 +12,6 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
-  console.log('login reducer', state, action);
   switch (action.type) {
     case NEEDY_HELP_REQUEST:
       return {

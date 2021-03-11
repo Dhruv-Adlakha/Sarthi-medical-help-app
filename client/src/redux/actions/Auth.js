@@ -7,14 +7,12 @@ export const loginUser = (user) => {
       type: LOADING1,
     });
     try {
-      console.log(user);
       const us = await axios({
         method: 'post',
         url: '/auth/login',
         data: user,
       });
       localStorage.setItem('token', us.data.token);
-      console.log(us);
       dispatch({
         type: 'LOGIN_USER',
         payload: {
@@ -24,7 +22,6 @@ export const loginUser = (user) => {
       });
       return 1;
     } catch (error) {
-      console.log(error);
       dispatch({
         type: ERROR,
       });
@@ -50,7 +47,6 @@ export const signUser = (user) => {
         data: user,
       });
       localStorage.setItem('token', us.data.token);
-      console.log(us);
       dispatch({
         type: 'SIGNUP_USER',
         payload: {
@@ -60,7 +56,6 @@ export const signUser = (user) => {
       });
       return 1;
     } catch (error) {
-      console.log(error);
       dispatch({
         type: ERROR,
       });
@@ -92,12 +87,12 @@ export const logoutUser = (user) => {
         data: user,
       });
       localStorage.setItem('token', null);
-      console.log(us.data);
       dispatch({
         type: 'LOGOUT_USER',
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

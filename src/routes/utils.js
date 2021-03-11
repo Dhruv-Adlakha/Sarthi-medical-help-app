@@ -19,7 +19,9 @@ router.patch('/updateRequest/:id', auth, async (req, res) => {
       request.applicationStatus = 6;
       request.volunteers[1] = req.user;
     }
-    console.log(request);
+    if (req.body.applicationStatus === 5) {
+      request.applicationStatus = 5;
+    }
     await request.save();
     res.send(request);
   } catch (error) {

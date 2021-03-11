@@ -20,14 +20,14 @@ export const submitVerification = (user) => {
         },
         data: user,
       });
-      console.log(updateRequest);
 
       dispatch({
         type: 'SUBMIT_VERIFICATION_' + user.role.toUpperCase(),
         payload: updateRequest.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

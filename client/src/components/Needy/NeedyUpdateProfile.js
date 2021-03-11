@@ -15,7 +15,6 @@ function NeedyUpdateProfile(props) {
     _id: props.currUser._id,
   });
   const onChangeHandler = (e) => {
-    console.log(e.target.name);
     setNewProfile({
       ...newProfile,
       [e.target.name]: e.target.value,
@@ -23,7 +22,6 @@ function NeedyUpdateProfile(props) {
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(newProfile);
     await props.dispatch(submitVerification(newProfile));
   };
   return (

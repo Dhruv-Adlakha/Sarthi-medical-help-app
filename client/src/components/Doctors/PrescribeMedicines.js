@@ -16,10 +16,9 @@ function PrescribeMedicines(props) {
     const indexCurrRequest = props.requests.findIndex((e) => {
       return e._id === props.match.params.id;
     });
-    console.log(props.match.params.id);
-    console.log(props.requests[indexCurrRequest]);
+
     setCurrRequest(props.requests[indexCurrRequest]);
-  });
+  }, [props]);
   const onChangeHandler = (e) => {
     setcurrMedicine(() => {
       return {
@@ -30,9 +29,7 @@ function PrescribeMedicines(props) {
   };
   const onAddHandler = (e) => {
     e.preventDefault();
-    console.log(allMedicines);
     setAllMedicines(() => [...allMedicines, currMedicine]);
-    console.log(allMedicines);
     setcurrMedicine('');
   };
   const onSubmitHandler = (e) => {

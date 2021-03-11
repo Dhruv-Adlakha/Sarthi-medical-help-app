@@ -16,11 +16,10 @@ function VerificationRequests(props) {
       return e.profileVerified === 'In process';
     });
     const arr = [...a1, ...a2, ...a3];
-    console.log(arr);
     setVrequests(() => {
       return arr;
     });
-  }, [vrequests]); //here try something different to make the page reload
+  }, [vrequests]);
 
   return (
     <div>

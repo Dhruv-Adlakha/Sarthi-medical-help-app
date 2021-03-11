@@ -16,7 +16,6 @@ router.post('/volunteer/trust', auth, async (req, res) => {
       contributer: req.body.contributer,
     };
     const tt = new TrustItem(trustItem);
-    // console.log(tt);
     await tt.save();
     res.send(tt);
   } catch (error) {

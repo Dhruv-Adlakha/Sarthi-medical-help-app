@@ -17,12 +17,12 @@ export const contributeTrust = (trust) => {
         },
         data: trust,
       });
-      console.log(trustContributed.data);
       dispatch({
         type: CONTRIBUTE_TRUST,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -45,8 +45,9 @@ export const deleteVolunteer = (volunteerUser) => {
         type: DELETE_VOLUNTEER,
         payload: volunteer.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -54,7 +55,8 @@ export const deleteVolunteer = (volunteerUser) => {
 export const acceptPatientDoctorVisit = (req) => {
   return async (dispatch) => {
     const token = localStorage.getItem('token');
-    console.log(req);
+    // ++req.applicationStatus;
+    console.log('dhruv', req);
     try {
       const request = await axios({
         method: 'patch',
@@ -68,13 +70,14 @@ export const acceptPatientDoctorVisit = (req) => {
           applicationStatus: req.applicationStatus + 1,
         },
       });
-      console.log(request);
+
       dispatch({
         type: 'UPDATE_REQUEST',
         payload: request.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

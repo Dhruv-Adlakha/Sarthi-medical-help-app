@@ -21,7 +21,6 @@ function Signup(props) {
     role: 'needy',
   });
   const onChangeHandler = async (e) => {
-    console.log(e.target.name, e.target.value);
     await setUser(() => ({
       ...user,
       [e.target.name]: e.target.value,

@@ -7,7 +7,6 @@ function DoctorRequest(props) {
   const [request, setRequest] = useState('');
   const [updated, setUpdated] = useState(false);
   useEffect(() => {
-    console.log(props.id);
     setRequest(props.requests.find((e) => e._id === props.id));
   }, []);
   const onAcceptHandler = () => {

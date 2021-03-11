@@ -41,7 +41,6 @@ function VolunteerMyProfile(props) {
       };
     });
     setDeliveryServices(() => drr);
-    console.log(brr, drr);
   });
   return (
     <div>

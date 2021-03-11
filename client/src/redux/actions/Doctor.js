@@ -23,8 +23,9 @@ export const doctorAcceptRequest = (requestId) => {
         type: DOCTOR_ACCEPT_REQUEST,
         payload: currRequest.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -47,8 +48,9 @@ export const deleteDoctor = (doctorUser) => {
         type: DELETE_DOCTOR,
         payload: doctor.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };
@@ -56,7 +58,6 @@ export const deleteDoctor = (doctorUser) => {
 export const prescribeMedicines = (medicines) => {
   return async (dispatch) => {
     const token = localStorage.getItem('token');
-    console.log(medicines.id);
     try {
       const req = await axios({
         method: 'post',
@@ -68,13 +69,13 @@ export const prescribeMedicines = (medicines) => {
         },
         data: medicines,
       });
-      console.log(req);
       dispatch({
         type: UPDATE_REQUEST,
         payload: req.data,
       });
+      return 1;
     } catch (error) {
-      console.log(error);
+      return 0;
     }
   };
 };

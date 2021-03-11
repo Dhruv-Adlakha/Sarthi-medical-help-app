@@ -15,7 +15,6 @@ function DoctorUpdateProfile(props) {
     _id: props.currUser._id,
   });
   const onChangeHandler = (e) => {
-    console.log(e.target.name);
     setNewProfile({
       ...newProfile,
       [e.target.name]: e.target.value,
